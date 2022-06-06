@@ -11,6 +11,7 @@ import { HuluComponent } from './what-to-watch/hulu/hulu.component';
 import { HbomaxComponent } from './what-to-watch/hbomax/hbomax.component';
 import { DisneyplusComponent } from './what-to-watch/disneyplus/disneyplus.component';
 import { AmazonprimeComponent } from './what-to-watch/amazonprime/amazonprime.component';
+import { ShowSearchComponent } from './show-search/show-search.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { AmazonprimeComponent } from './what-to-watch/amazonprime/amazonprime.co
     HuluComponent,
     HbomaxComponent,
     DisneyplusComponent,
-    AmazonprimeComponent
+    AmazonprimeComponent,
+    ShowSearchComponent
   ],
   imports: [
     BrowserModule,

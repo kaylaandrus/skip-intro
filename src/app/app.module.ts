@@ -6,13 +6,23 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { WatchlistComponent } from './watchlist/watchlist.component';
 import { WhatToWatchComponent } from './what-to-watch/what-to-watch.component';
+import { NetflixComponent } from './what-to-watch/netflix/netflix.component';
+import { HuluComponent } from './what-to-watch/hulu/hulu.component';
+import { HbomaxComponent } from './what-to-watch/hbomax/hbomax.component';
+import { DisneyplusComponent } from './what-to-watch/disneyplus/disneyplus.component';
+import { AmazonprimeComponent } from './what-to-watch/amazonprime/amazonprime.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     WatchlistComponent,
-    WhatToWatchComponent
+    WhatToWatchComponent,
+    NetflixComponent,
+    HuluComponent,
+    HbomaxComponent,
+    DisneyplusComponent,
+    AmazonprimeComponent
   ],
   imports: [
     BrowserModule,

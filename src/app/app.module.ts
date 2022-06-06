@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NavbarComponent } from './navbar/navbar.component';
+
 import { WatchlistComponent } from './watchlist/watchlist.component';
 import { WhatToWatchComponent } from './what-to-watch/what-to-watch.component';
 import { NetflixComponent } from './what-to-watch/netflix/netflix.component';
@@ -12,6 +12,14 @@ import { HbomaxComponent } from './what-to-watch/hbomax/hbomax.component';
 import { DisneyplusComponent } from './what-to-watch/disneyplus/disneyplus.component';
 import { AmazonprimeComponent } from './what-to-watch/amazonprime/amazonprime.component';
 import { ShowSearchComponent } from './show-search/show-search.component';
+
+import { NavbarComponent } from './shared/navbar/navbar.component';
+import { SharedComponent } from './shared/shared.component';
+import { TvshowComponent } from './shared/tvshow/tvshow.component';
+import { DirectivesComponent } from './shared/directives/directives.component';
+import { HttpComponent } from './shared/http/http.component';
+import { HomeComponent } from './home/home.component';
+
 
 @NgModule({
   declarations: [
@@ -24,7 +32,13 @@ import { ShowSearchComponent } from './show-search/show-search.component';
     HbomaxComponent,
     DisneyplusComponent,
     AmazonprimeComponent,
-    ShowSearchComponent
+    ShowSearchComponent,
+    SharedComponent,
+    TvshowComponent,
+    DirectivesComponent,
+    HttpComponent,
+    HomeComponent,
+
   ],
   imports: [
     BrowserModule,

@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { HomeComponent } from './home/home.component';
+import { LoginComponent } from './login/login.component';
 import { WatchlistComponent } from './watchlist/watchlist.component';
 import { AmazonprimeComponent } from './what-to-watch/amazonprime/amazonprime.component';
 import { DisneyplusComponent } from './what-to-watch/disneyplus/disneyplus.component';
@@ -9,6 +11,7 @@ import { NetflixComponent } from './what-to-watch/netflix/netflix.component';
 import { WhatToWatchComponent } from './what-to-watch/what-to-watch.component';
 
 const routes: Routes = [
+  {path: '', component: LoginComponent},
   { path: 'my-watchlist', component: WatchlistComponent },
   { path: 'what-to-watch', component: WhatToWatchComponent },
   { path: 'what-to-watch/netflix', component: NetflixComponent },

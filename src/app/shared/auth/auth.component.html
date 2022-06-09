@@ -1,16 +1,22 @@
-<form action="action_page.php" method="post">
+<form #authFormRef = "ngForm" (ngSubmit)="onAuthFormSubmit(authFormRef)" action="action_page.php" method="post">
   <div class="imgcontainer">
     <img src="https://i.ibb.co/NFrzxpW/91168225-5507-4380-B65-D-C52-E86472299.png" alt="91168225-5507-4380-B65-D-C52-E86472299" class="avatar">
   </div>
 
   <div class="container">
-    <label for="uname" class="text"><b>Username</b></label>
-    <input type="text" placeholder="Enter Username" name="uname" required>
+    <label for="uname" class="text"><b>Email</b></label>
+    <input type="text" placeholder="Enter Email" name="email" ngModel equired>
 
     <label for="psw" class="text"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" name="psw" required>
+    <input type="password" placeholder="Enter Password" name="psw" minlength="6" ngModel required>
 
-    <button type="submit">Login</button>
+    <button type="submit" [disabled]="!authFormRef.valid">
+      {{ isLoginMode ? "Sign In" : "Sign Up" }}
+    </button>
+    <button type="submit" (click)="onSwitchAuthMode()">
+      Switch to {{ isLoginMode ? "Sign Up" : "Sign In" }}
+    </button>
+
     <label>
       <input type="checkbox" checked="checked" name="remember"> Remember me
     </label>

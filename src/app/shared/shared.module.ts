@@ -5,9 +5,10 @@ import { Router, RouterModule } from "@angular/router";
 
 import { TvshowComponent } from "./tvshow/tvshow.component";
 import { AuthComponent } from './auth/auth.component';
+import { NavigationComponent } from './navigation/navigation.component';
 
 @NgModule({
-  declarations: [TvshowComponent, AuthComponent],
+  declarations: [TvshowComponent, NavigationComponent],
   imports: [CommonModule, RouterModule, FormsModule],
   exports: [TvshowComponent, CommonModule, FormsModule]
 })

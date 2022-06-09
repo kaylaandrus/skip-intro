@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -16,9 +17,11 @@ import { ShowSearchComponent } from './show-search/show-search.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { SharedComponent } from './shared/shared.component';
 import { TvshowComponent } from './shared/tvshow/tvshow.component';
-import { DirectivesComponent } from './shared/directives/directives.component';
-import { HttpComponent } from './shared/http/http.component';
 import { HomeComponent } from './home/home.component';
+import { DirectivesComponent } from './shared/directives/directives.component';
+
+import { HttpComponent } from './shared/http/http.component';
+import { AuthComponent } from './shared/auth/auth.component';
 
 
 @NgModule({
@@ -38,11 +41,13 @@ import { HomeComponent } from './home/home.component';
     DirectivesComponent,
     HttpComponent,
     HomeComponent,
+    AuthComponent
 
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

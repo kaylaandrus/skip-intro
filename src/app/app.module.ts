@@ -19,7 +19,6 @@ import { TvshowComponent } from './shared/tvshow/tvshow.component';
 import { DirectivesComponent } from './shared/directives/directives.component';
 import { HttpComponent } from './shared/http/http.component';
 import { HomeComponent } from './home/home.component';
-import { LoginComponent } from './login/login.component';
 
 
 @NgModule({
@@ -39,7 +38,6 @@ import { LoginComponent } from './login/login.component';
     DirectivesComponent,
     HttpComponent,
     HomeComponent,
-    LoginComponent,
 
   ],
   imports: [

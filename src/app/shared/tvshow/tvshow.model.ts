@@ -1,8 +1,8 @@
-export class tvshow {
+export class Show {
   constructor(
     public title: string,
-    public genre: string,
     public releaseDate: number,
+    public genre: string,
     public rating: string,
     public coverImg: string
   ) {}

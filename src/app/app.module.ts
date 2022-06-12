@@ -12,7 +12,6 @@ import { HuluComponent } from './what-to-watch/hulu/hulu.component';
 import { HbomaxComponent } from './what-to-watch/hbomax/hbomax.component';
 import { DisneyplusComponent } from './what-to-watch/disneyplus/disneyplus.component';
 import { AmazonprimeComponent } from './what-to-watch/amazonprime/amazonprime.component';
-import { ShowSearchComponent } from './show-search/show-search.component';
 
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { SharedComponent } from './shared/shared.component';
@@ -22,6 +21,10 @@ import { DirectivesComponent } from './shared/directives/directives.component';
 
 import { HttpComponent } from './shared/http/http.component';
 import { AuthComponent } from './shared/auth/auth.component';
+import { ShowListComponent } from './watchlist/show-list/show-list.component';
+import { ShowDetailsComponent } from './watchlist/show-details/show-details.component';
+import { ShowResultsComponent } from './what-to-watch/show-results/show-results.component';
+import { ShowSearchComponent } from './what-to-watch/show-search/show-search.component';
 
 
 @NgModule({
@@ -35,13 +38,16 @@ import { AuthComponent } from './shared/auth/auth.component';
     HbomaxComponent,
     DisneyplusComponent,
     AmazonprimeComponent,
-    ShowSearchComponent,
     SharedComponent,
     TvshowComponent,
     DirectivesComponent,
     HttpComponent,
     HomeComponent,
-    AuthComponent
+    AuthComponent,
+    ShowListComponent,
+    ShowDetailsComponent,
+    ShowResultsComponent,
+    ShowSearchComponent
 
   ],
   imports: [

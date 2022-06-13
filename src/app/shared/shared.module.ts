@@ -7,10 +7,11 @@ import { TvshowComponent } from "./tvshow/tvshow.component";
 import { AuthComponent } from './auth/auth.component';
 import { NavigationComponent } from './navigation/navigation.component';
 
+
 @NgModule({
-  declarations: [TvshowComponent, NavigationComponent],
+  declarations: [NavigationComponent],
   imports: [CommonModule, RouterModule, FormsModule],
-  exports: [TvshowComponent, CommonModule, FormsModule]
+  exports: [CommonModule, FormsModule]
 })
 
 export class SharedModule{}

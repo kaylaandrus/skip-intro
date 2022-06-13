@@ -1,7 +1,8 @@
-import { CommonModule } from '@angular/common';
+import { Observable } from 'rxjs';
 import { Component, NgModule, OnInit } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { AuthResponseData, AuthService } from './auth.service';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -10,21 +11,43 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./auth.component.css']
 })
 export class AuthComponent implements OnInit {
+  authObs: Observable<any>;
+  isSignUpMode = true;
+  isLoginMode = true;
 
-  constructor() { }
+  constructor(private authService: AuthService) {}
 
   ngOnInit(): void {
   }
 
-  isLoginMode = true;
+  errMsg = null;
+
+  authObsrv: Observable<AuthResponseData>;
 
   onSwitchAuthMode() {
     this.isLoginMode = !this.isLoginMode;
   }
 
   onAuthFormSubmit(formObj: NgForm) {
-    console.log('Form Values', formObj.value);
+    if (!formObj.valid) return;
+
+    const { email, password } = formObj.value
+
+    if (this.isLoginMode) {
+      this.authObsrv = this.authService.signIn(email, password);
+    } else {
+      this.authObsrv = this.authService.signUp(email, password);
+    }
+    this.authObsrv.subscribe(
+      (res) => {
+        console.log('Auth Res Success:', res);
+        if (this.errMsg) this.errMsg = null;
+      },
+      (err) => {
+        console.error('Auth Res Error:', err);
+        this.errMsg = err.message;
+      }
+    );
     formObj.reset();
   }
-
 }

@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
+import { SharedModule } from './shared/shared.module';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -21,6 +22,7 @@ import { DirectivesComponent } from './shared/directives/directives.component';
 
 import { HttpComponent } from './shared/http/http.component';
 import { AuthComponent } from './shared/auth/auth.component';
+import { FooterComponent } from './footer/footer.component';
 import { ShowListComponent } from './watchlist/show-list/show-list.component';
 import { ShowDetailsComponent } from './watchlist/show-details/show-details.component';
 import { ShowResultsComponent } from './what-to-watch/show-results/show-results.component';
@@ -47,13 +49,15 @@ import { ShowSearchComponent } from './what-to-watch/show-search/show-search.com
     ShowListComponent,
     ShowDetailsComponent,
     ShowResultsComponent,
-    ShowSearchComponent
+    ShowSearchComponent,
+    FooterComponent
 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]

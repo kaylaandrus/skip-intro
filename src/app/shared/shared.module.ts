@@ -7,6 +7,7 @@ import { TvshowComponent } from "./tvshow/tvshow.component";
 import { AuthComponent } from './auth/auth.component';
 import { NavigationComponent } from './navigation/navigation.component';
 
+
 @NgModule({
   declarations: [NavigationComponent],
   imports: [CommonModule, RouterModule, FormsModule],

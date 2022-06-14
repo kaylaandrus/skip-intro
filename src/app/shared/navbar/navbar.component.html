@@ -5,79 +5,52 @@
         <img src="https://i.ibb.co/NFrzxpW/91168225-5507-4380-B65-D-C52-E86472299.png" alt="91168225-5507-4380-B65-D-C52-E86472299" border="0" class="img-fluid">
       </div>
     </a>
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-bs-toggle="collapse"
-      data-bs-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a
-            class="nav-link active"
-            aria-current="page"
-            routerLink="my-watchlist"
+        <li class="nav-item" *ngIf="isAuthenticated">
+          <a class="nav-link active" aria-current="page" routerLink="my-watchlist"
             >My List</a
           >
         </li>
-        <li class="nav-item">
+        <li class="nav-item" *ngIf="isAuthenticated">
           <a class="nav-link"></a>
         </li>
         <li class="nav-item dropdown">
-          <a
-            class="nav-link dropdown-toggle"
-            id="navbarDropdown"
-            role="button"
-            data-bs-toggle="dropdown"
-            aria-expanded="true"
-          >
+          <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="true">
             What To Watch
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li>
-              <a class="dropdown-item" routerLink="what-to-watch"
+            <li><a class="dropdown-item" routerLink="what-to-watch"
                 >Netflix</a
               >
             </li>
-            <li>
-              <a class="dropdown-item" routerLink="what-to-watch"
+            <li><a class="dropdown-item" routerLink="what-to-watch"
                 >HBO Max</a
               >
             </li>
-            <li>
-              <a class="dropdown-item" routerLink="what-to-watch"
+            <li><a class="dropdown-item" routerLink="what-to-watch"
                 >Hulu</a
               >
             </li>
-            <li>
-              <a class="dropdown-item" routerLink="what-to-watch"
+            <li><a class="dropdown-item" routerLink="what-to-watch"
                 >Amazon Prime Video</a
               >
             </li>
-            <li>
-              <a class="dropdown-item" routerLink="what-to-watch"
+            <li><a class="dropdown-item" routerLink="what-to-watch"
                 >Disney+</a
               >
             </li>
           </ul>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="">Sign Out</a>
+        <li class="nav-item" *ngIf="!isAuthenticated">
+          <a class="nav-link active" aria-current="page" routerLink="auth">Sign Out</a>
         </li>
       </ul>
       <form class="d-flex">
-        <input
-          class="form-control me-2"
-          type="search"
-          placeholder="Search"
-          aria-label="Search"
-        />
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
         <button class="btn btn-outline-success" type="submit">Search</button>
       </form>
     </div>

@@ -1,6 +1,6 @@
 import { Observable } from 'rxjs';
-import { Component, NgModule, OnInit } from '@angular/core';
-import { AuthResponseData, AuthService } from './auth.service';
+import { Component, OnInit } from '@angular/core';
+import { AuthService } from './auth.service';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 
@@ -15,14 +15,14 @@ export class AuthComponent implements OnInit {
   isSignUpMode = true;
   isLoginMode = true;
 
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService, private router: Router) {}
 
   ngOnInit(): void {
   }
 
   errMsg = null;
 
-  authObsrv: Observable<AuthResponseData>;
+  authObsrv: Observable<any>;
 
   onSwitchAuthMode() {
     this.isLoginMode = !this.isLoginMode;
@@ -42,6 +42,8 @@ export class AuthComponent implements OnInit {
       (res) => {
         console.log('Auth Res Success:', res);
         if (this.errMsg) this.errMsg = null;
+
+        this.router.navigate(['watchlist']);
       },
       (err) => {
         console.error('Auth Res Error:', err);

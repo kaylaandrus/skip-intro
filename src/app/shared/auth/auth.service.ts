@@ -1,8 +1,10 @@
 import { HttpClient } from "@angular/common/http"
-import { BehaviorSubject } from "rxjs";
+import { BehaviorSubject, tap } from "rxjs";
 import { environment } from "src/environments/environment";
 import { Router } from "@angular/router";
 import { Injectable } from "@angular/core"
+
+import { User } from "./user.model";
 
 
 const AUTH_API_KEY = "lb2NG4CiWnUIRQgEbzvcKDeXMyKXCNern1SH67eN";
@@ -12,29 +14,48 @@ const SIGN_IN_URL = "https://identitytoolkit.googleapis.com/v1/accounts:signInWi
 Injectable({
   providedIn: "root",
 })
-
-export interface AuthResponseData {
-  registered?: boolean
-}
 export class AuthService {
 
-  constructor(private http: HttpClient) {}
+  currentUser = new BehaviorSubject<any>(null);
+
+  constructor(private http: HttpClient, private router: Router) {}
 
   signUp(email: string, password: string) {
-    return this.http.post(SIGN_UP_URL + AUTH_API_KEY, {
+    return this.http
+    .post<any>(SIGN_UP_URL + AUTH_API_KEY, {
       email,
       password,
       returnSecureToken: true,
-    });
+    })
+    .pipe(
+      tap((res) => {
+        const { email, localId, idToken, expiresIn } = res;
+
+        this.handleAuth(email, localId, idToken, +expiresIn);
+      })
+    );
   }
   signIn (email: string, password: string) {
-    return this.http.post<AuthResponseData>(
-      SIGN_IN_URL + AUTH_API_KEY,
-      {
+    return this.http
+    .post<any>(SIGN_IN_URL + AUTH_API_KEY,{
         email,
         password,
         returnSecureToken: true,
-      }
+    })
+    .pipe(
+      tap((res) => {
+        const { email, localId, idToken, expiresIn } = res;
+        this.handleAuth(email, localId, idToken, +expiresIn);
+      })
     );
+  }
+handleAuth(email: string, userId: string, token: string, expiresIn: number) {
+  const expDate = new Date(new Date().getTime() + expiresIn * 1000);
+
+  const formUser = new User(email, userId, token, expDate);
+
+  this.currentUser.next(formUser);
+
+  localStorage.setItem("userData", JSON.stringify(formUser));
   }
 }

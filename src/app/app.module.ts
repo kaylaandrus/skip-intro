@@ -49,9 +49,11 @@ import { ShowSearchComponent } from './what-to-watch/show-search/show-search.com
     ShowListComponent,
     ShowDetailsComponent,
     ShowResultsComponent,
-    ShowSearchComponent,
-    FooterComponent
-
+    WhatToWatchComponent,
+    WatchlistComponent,
+    TvshowComponent,
+    FooterComponent,
+    ShowSearchComponent
   ],
   imports: [
     BrowserModule,

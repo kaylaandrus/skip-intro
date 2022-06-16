@@ -6,8 +6,6 @@ import { Injectable } from "@angular/core"
 
 import { User } from "./user.model";
 
-
-const AUTH_API_KEY = "lb2NG4CiWnUIRQgEbzvcKDeXMyKXCNern1SH67eN";
 const SIGN_UP_URL = "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyBy1E_D6OgqJ-3c3mmP09rUm6GRxHlqZko";
 const SIGN_IN_URL = "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=IzaSyBy1E_D6OgqJ-3c3mmP09rUm6GRxHlqZko";
 
@@ -22,7 +20,7 @@ export class AuthService {
 
   signUp(email: string, password: string) {
     return this.http
-    .post<any>(SIGN_UP_URL + AUTH_API_KEY, {
+    .post<any>(SIGN_UP_URL + environment.firebaseAPIKey, {
       email,
       password,
       returnSecureToken: true,
@@ -37,7 +35,7 @@ export class AuthService {
   }
   signIn (email: string, password: string) {
     return this.http
-    .post<any>(SIGN_IN_URL + AUTH_API_KEY,{
+    .post<any>(SIGN_IN_URL + environment.firebaseAPIKey,{
         email,
         password,
         returnSecureToken: true,

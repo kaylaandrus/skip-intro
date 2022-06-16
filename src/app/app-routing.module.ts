@@ -13,8 +13,8 @@ import { WhatToWatchComponent } from './what-to-watch/what-to-watch.component';
 const routes: Routes = [
   { path: '', component: HomeComponent},
   { path: 'auth', component: AuthComponent},
-  { path: 'my-watchlist', component: WatchlistComponent },
-  { path: 'what-to-watch', component: WhatToWatchComponent },
+  { path: 'my-watchlist', component: WatchlistComponent, canActivate: [AuthGuard] },
+  { path: 'what-to-watch', component: WhatToWatchComponent, canActivate: [AuthGuard] },
   { path: 'what-to-watch/netflix', component: NetflixComponent },
   { path: 'what-to-watch/hbomax', component: HbomaxComponent },
   { path: 'what-to-watch/hulu', component: HuluComponent },

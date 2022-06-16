@@ -36,7 +36,8 @@ import { TvshowComponent } from './shared/tvshow/tvshow.component';
     ShowSearchComponent,
     ShowResultsComponent,
     WhatToWatchComponent,
-    WatchlistComponent
+    WatchlistComponent,
+    TvshowComponent
   ],
   imports: [
     BrowserModule,

@@ -4,7 +4,6 @@ import { AuthService } from './auth.service';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 
-
 @Component({
   selector: 'app-auth',
   templateUrl: './auth.component.html',
@@ -13,41 +12,32 @@ import { Router } from '@angular/router';
 export class AuthComponent implements OnInit {
   authObs: Observable<any>;
   isSignUpMode = true;
-  isLoginMode = true;
 
   constructor(private authService: AuthService, private router: Router) {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
-  errMsg = null;
-
-  authObsrv: Observable<any>;
-
-  onSwitchAuthMode() {
-    this.isLoginMode = !this.isLoginMode;
+  onAuthModeToggle() {
+    this.isSignUpMode = !this.isSignUpMode;
   }
 
   onAuthFormSubmit(formObj: NgForm) {
-    if (!formObj.valid) return;
+    const { email, password } = formObj.value;
 
-    const { email, password } = formObj.value
+    if (!email || !password) return;
 
-    if (this.isLoginMode) {
-      this.authObsrv = this.authService.signIn(email, password);
+    if (this.isSignUpMode == true) {
+      this.authObs = this.authService.signInToFirebase(email, password);
     } else {
-      this.authObsrv = this.authService.signUp(email, password);
+      this.authObs = this.authService.signUpToFirebase(email, password);
     }
-    this.authObsrv.subscribe(
-      (res) => {
-        console.log('Auth Res Success:', res);
-        if (this.errMsg) this.errMsg = null;
-
-        this.router.navigate(['watchlist']);
+    this.authObs.subscribe(
+      (res: any) => {
+        console.log("SUCCESS:", res);
+        this.router.navigate(["watchlist"]);
       },
-      (err) => {
-        console.error('Auth Res Error:', err);
-        this.errMsg = err.message;
+      (err: any) => {
+        console.log("ERROR:", err);
       }
     );
     formObj.reset();

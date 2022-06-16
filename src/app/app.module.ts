@@ -16,19 +16,14 @@ import { HuluComponent } from './what-to-watch/hulu/hulu.component';
 import { HbomaxComponent } from './what-to-watch/hbomax/hbomax.component';
 import { DisneyplusComponent } from './what-to-watch/disneyplus/disneyplus.component';
 import { AmazonprimeComponent } from './what-to-watch/amazonprime/amazonprime.component';
-
 import { SharedModule } from './shared/shared.module';
-
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { HomeComponent } from './home/home.component';
-
-
 import { FooterComponent } from './footer/footer.component';
-
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { AuthModule } from './shared/auth/auth.module';
 import { AuthInterceptorService } from './shared/auth/auth-interceptor.service';
 import { TvshowComponent } from './shared/tvshow/tvshow.component';
+
 
 
 
@@ -38,7 +33,6 @@ import { TvshowComponent } from './shared/tvshow/tvshow.component';
     NavbarComponent,
     FooterComponent,
     ShowListComponent,
-    TvshowComponent,
     ShowSearchComponent,
     ShowResultsComponent,
     WhatToWatchComponent,

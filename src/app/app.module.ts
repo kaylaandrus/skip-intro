@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { AuthService } from './shared/auth/auth.service';
 
 import { WatchlistComponent } from './watchlist/watchlist.component';
 import { WhatToWatchComponent } from './what-to-watch/what-to-watch.component';
@@ -26,8 +27,9 @@ import { ShowListComponent } from './watchlist/show-list/show-list.component';
 import { ShowDetailsComponent } from './watchlist/show-details/show-details.component';
 import { ShowResultsComponent } from './what-to-watch/show-results/show-results.component';
 import { ShowSearchComponent } from './what-to-watch/show-search/show-search.component';
-import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptorService } from './shared/auth/auth-interceptor.service';
+import { environment } from 'src/environments/environment';
 
 
 @NgModule({
@@ -58,6 +60,7 @@ import { AuthInterceptorService } from './shared/auth/auth-interceptor.service';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    HttpClientModule
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS,

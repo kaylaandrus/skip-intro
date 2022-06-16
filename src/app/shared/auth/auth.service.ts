@@ -9,9 +9,6 @@ import { User } from "./user.model";
 const SIGN_UP_URL = "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyBy1E_D6OgqJ-3c3mmP09rUm6GRxHlqZko";
 const SIGN_IN_URL = "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=IzaSyBy1E_D6OgqJ-3c3mmP09rUm6GRxHlqZko";
 
-Injectable({
-  providedIn: "root",
-})
 
 export interface UserData {
   email: string,
@@ -19,6 +16,9 @@ export interface UserData {
   _token: string;
   _tokenExpirationDate: string;
 }
+@Injectable({
+  providedIn: "root",
+})
 
 export class AuthService {
   private tokenExpTimer: any;

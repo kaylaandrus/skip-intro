@@ -11,10 +11,10 @@
     <input type="password" placeholder="Enter Password" name="psw" minlength="6" ngModel required>
 
     <button type="submit" [disabled]="!authFormRef.valid">
-      {{ isLoginMode ? "Sign In" : "Sign Up" }}
+      {{ isSignUpMode ? "Sign In" : "Sign Up" }}
     </button>
-    <button type="submit" (click)="onSwitchAuthMode()">
-      Switch to {{ isLoginMode ? "Sign Up" : "Sign In" }}
+    <button type="submit" (click)="onAuthModeToggle()">
+      Switch to {{ isSignUpMode ? "Sign Up" : "Sign In" }}
     </button>
 
     <label>
@@ -27,4 +27,4 @@
     <span class="psw">Forgot <a href="#">password?</a></span>
   </div>
 </form>
-<p class="alert alert-danger mt-3" *ngIf="errMsg">{{ errMsg }}</p>
+

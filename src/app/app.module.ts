@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
-import { SharedModule } from './shared/shared.module';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -27,6 +26,8 @@ import { ShowListComponent } from './watchlist/show-list/show-list.component';
 import { ShowDetailsComponent } from './watchlist/show-details/show-details.component';
 import { ShowResultsComponent } from './what-to-watch/show-results/show-results.component';
 import { ShowSearchComponent } from './what-to-watch/show-search/show-search.component';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthInterceptorService } from './shared/auth/auth-interceptor.service';
 
 
 @NgModule({
@@ -57,9 +58,12 @@ import { ShowSearchComponent } from './what-to-watch/show-search/show-search.com
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    SharedModule
   ],
-  providers: [],
+  providers: [
+    {provide: HTTP_INTERCEPTORS,
+    useClass: AuthInterceptorService,
+    multi: true,}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

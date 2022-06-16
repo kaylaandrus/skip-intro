@@ -45,7 +45,7 @@
             </li>
           </ul>
         </li>
-        <li class="nav-item" *ngIf="!isAuthenticated">
+        <li class="nav-item" *ngIf="!isAuthenticated" (click)="onSignOut()">
           <a class="nav-link active" aria-current="page" routerLink="auth">Sign Out</a>
         </li>
       </ul>

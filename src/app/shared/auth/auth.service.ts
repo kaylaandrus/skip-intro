@@ -49,6 +49,11 @@ export class AuthService {
       })
     );
   }
+  signOut() {
+    this.currentUser.next(null);
+    this.router.navigate(['auth']);
+  }
+
 handleAuth(email: string, userId: string, token: string, expiresIn: number) {
   const expDate = new Date(new Date().getTime() + expiresIn * 1000);
 

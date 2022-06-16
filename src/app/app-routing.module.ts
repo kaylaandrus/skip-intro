@@ -9,6 +9,7 @@ import { HbomaxComponent } from './what-to-watch/hbomax/hbomax.component';
 import { HuluComponent } from './what-to-watch/hulu/hulu.component';
 import { NetflixComponent } from './what-to-watch/netflix/netflix.component';
 import { WhatToWatchComponent } from './what-to-watch/what-to-watch.component';
+import { AuthGuard } from './shared/auth/auth.guard';
 
 const routes: Routes = [
   { path: '', component: HomeComponent},

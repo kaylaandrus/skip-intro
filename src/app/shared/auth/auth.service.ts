@@ -12,7 +12,16 @@ const SIGN_IN_URL = "https://identitytoolkit.googleapis.com/v1/accounts:signInWi
 Injectable({
   providedIn: "root",
 })
+
+export interface UserData {
+  email: string,
+  id: string;
+  _token: string;
+  _tokenExpirationDate: string;
+}
+
 export class AuthService {
+  private tokenExpTimer: any;
 
   currentUser = new BehaviorSubject<any>(null);
 
@@ -49,15 +58,41 @@ export class AuthService {
   }
   signOut() {
     this.currentUser.next(null);
+    localStorage.removeItem("userData");
+    if (this.tokenExpTimer) clearTimeout(this.tokenExpTimer);
     this.router.navigate(['auth']);
   }
+  automaticSignIn() {
+    const userData: UserData = JSON.parse(localStorage.getItem('userData'));
 
+    if (!userData) return;
+    const { email, id, _token, _tokenExpirationDate } = userData;
+
+    const loadedUser = new User(
+      email,
+      id,
+      _token,
+      new Date(_tokenExpirationDate)
+    );
+    if (loadedUser.token) {
+      this.currentUser.next(loadedUser);
+    }
+  }
+  automaticSignOut(expDuration: number) {
+    console.log("Expiration Duration:", expDuration);
+
+    this.tokenExpTimer = setTimeout(() => {
+      this.signOut();
+      }, expDuration);
+    }
 handleAuth(email: string, userId: string, token: string, expiresIn: number) {
   const expDate = new Date(new Date().getTime() + expiresIn * 1000);
 
   const formUser = new User(email, userId, token, expDate);
 
   this.currentUser.next(formUser);
+
+  this.automaticSignOut(expiresIn *1000);
 
   localStorage.setItem("userData", JSON.stringify(formUser));
   }

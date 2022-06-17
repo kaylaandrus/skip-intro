@@ -23,6 +23,7 @@ import { FooterComponent } from './footer/footer.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptorService } from './shared/auth/auth-interceptor.service';
 import { TvshowComponent } from './shared/tvshow/tvshow.component';
+import { StreamingServicesComponent } from './what-to-watch/streaming-services/streaming-services.component';
 
 
 
@@ -37,7 +38,8 @@ import { TvshowComponent } from './shared/tvshow/tvshow.component';
     ShowResultsComponent,
     WhatToWatchComponent,
     WatchlistComponent,
-    TvshowComponent
+    TvshowComponent,
+    StreamingServicesComponent
   ],
   imports: [
     BrowserModule,

@@ -37,10 +37,15 @@ export class WatchlistService {
     this.selectedShow.next(show);
     this.watchlistChanged.next(this.myShows.slice());
   }
-  getShows() {
+  getWatchlistShows() {
     return this.myShows.slice();
   }
-  saveShow(show: Show) {
+  saveWatchlistShow(show: Show) {
     this.myShows.push(show);
+  }
+  removeWatchlistShow(idx: number) {
+    if (idx !=== -1) {
+      this.myShows.splice(idx, 1)
+    }
   }
 }

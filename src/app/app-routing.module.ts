@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from './home/home.component';
+
 
 import { AuthComponent } from './shared/auth/auth.component';
 import { AuthGuard } from './shared/auth/auth.guard';
@@ -17,7 +17,7 @@ import { WhatToWatchComponent } from './what-to-watch/what-to-watch.component';
 const routes: Routes = [
   { path: '', redirectTo: "./home", pathMatch: "full"},
   { path: 'auth', loadChildren: () => import("./shared/auth/auth.module").then(m => m.AuthModule)},
-  { path: 'my-watchlist', component: WatchlistComponent, canActivate: [AuthGuard] },
+  { path: 'my-watchlist', loadChildren: () => import("./watchlist/watchlist.module").then(m => m.WatchlistModule)},
   { path: 'what-to-watch', component: WhatToWatchComponent, canActivate: [AuthGuard] },
   { path: 'what-to-watch/streaming-services/netflix', component: NetflixComponent },
   { path: 'what-to-watch/streaming-services/hbomax', component: HbomaxComponent },

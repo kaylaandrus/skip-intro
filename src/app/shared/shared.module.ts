@@ -7,10 +7,11 @@ import { ShowComponent } from "./show/show.component";
 
 
 
+
 @NgModule({
   declarations: [ShowComponent],
   imports: [CommonModule, RouterModule, FormsModule],
-  exports: [CommonModule, FormsModule]
+  exports: [CommonModule, FormsModule, ShowComponent],
 })
 
 export class SharedModule{}

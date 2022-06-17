@@ -24,6 +24,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptorService } from './shared/auth/auth-interceptor.service';
 import { TvshowComponent } from './shared/tvshow/tvshow.component';
 import { StreamingServicesComponent } from './what-to-watch/streaming-services/streaming-services.component';
+import { WatchlistEditorComponent } from './watchlist/watchlist-editor/watchlist-editor.component';
 
 
 
@@ -39,7 +40,8 @@ import { StreamingServicesComponent } from './what-to-watch/streaming-services/s
     WatchlistComponent,
     TvshowComponent,
     NavbarComponent,
-    StreamingServicesComponent
+    StreamingServicesComponent,
+    WatchlistEditorComponent
   ],
   imports: [
     BrowserModule,

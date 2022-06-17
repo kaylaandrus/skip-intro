@@ -4,7 +4,7 @@ import { Show } from '../shared/tvshow/tvshow.model';
 @Injectable({
   providedIn: 'root',
 })
-export class TvshowService {
+export class WatchlistService {
   selectedTvshow = new Subject<Show>();
   watchlistChanged = new Subject<Show[]>();
   private myTvshows: Show[] = [];

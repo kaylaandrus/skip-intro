@@ -40,4 +40,7 @@ export class WatchlistService {
   getShows() {
     return this.myShows.slice();
   }
+  saveShow(show: Show) {
+    this.myShows.push(show);
+  }
 }

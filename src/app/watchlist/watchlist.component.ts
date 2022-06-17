@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./watchlist.component.css'],
 })
 export class WatchlistComponent implements OnInit {
-  tvShowTest = [
+  Show = [
     'Game of Thrones',
     'Gilmore Girls',
     'The Boys',

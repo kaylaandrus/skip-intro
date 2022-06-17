@@ -1,6 +1,6 @@
 import { serializeNodes } from '@angular/compiler/src/i18n/digest';
 import { Component, OnInit } from '@angular/core';
-import { Show } from 'src/app/shared/tvshow/tvshow.model';
+import { Show } from 'src/app/shared/show/show.model';
 
 @Component({
   selector: 'app-show-list',

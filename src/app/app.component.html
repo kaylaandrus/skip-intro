@@ -2,8 +2,10 @@
   <app-navbar (currentPage)="onNavigatePage($event)"></app-navbar>
   <div class="row">
     <div class="col-md-10 mx-auto">
+      <app-watchlist *ngIf="pageDisplayed === 'watchlist'"></app-watchlist>
      <router-outlet></router-outlet>
       <hr/>
+      <app-what-to-watch *ngIf="pageDisplayed === 'library'"></app-what-to-watch>
     </div>
   </div>
   <app-footer></app-footer>

@@ -8,15 +8,10 @@ import { AuthService } from './shared/auth/auth.service';
 })
 export class AppComponent implements OnInit {
 
-  pageDisplayed = "watchlist"
-
   constructor(private authService: AuthService) {}
 
   ngOnInit(): void {
     this.authService.automaticSignIn();
   }
-  onNavigatePage(page:string) {
-    this.pageDisplayed = page;
-  }
-  title = 'skip-intro';
 }
+

@@ -1,6 +1,6 @@
-import { serializeNodes } from '@angular/compiler/src/i18n/digest';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import { Show } from 'src/app/shared/show/show.model';
+import { EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-show-list',
@@ -19,9 +19,13 @@ export class ShowListComponent implements OnInit {
     )
   ];
 
+  @Output() currentSelectedShow = new EventEmitter<Show>();
+
   constructor() { }
 
   ngOnInit(): void {
   }
-
+  handleShowSelected(show: Show) {
+    this.currentSelectedShow.emit(show);
+  }
 }

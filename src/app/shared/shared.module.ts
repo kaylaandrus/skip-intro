@@ -1,17 +1,17 @@
 import { CommonModule } from "@angular/common";
 import { NgModule } from "@angular/core";
 import { FormsModule } from "@angular/forms";
-import { Router, RouterModule } from "@angular/router";
-
+import { RouterModule } from "@angular/router";
 import { ShowComponent } from "./show/show.component";
-import { AuthComponent } from './auth/auth.component';
-import { NavbarComponent } from "./navbar/navbar.component";
+
+
+
 
 
 @NgModule({
-  declarations: [],
+  declarations: [ShowComponent],
   imports: [CommonModule, RouterModule, FormsModule],
-  exports: [CommonModule, FormsModule]
+  exports: [CommonModule, FormsModule, ShowComponent],
 })
 
 export class SharedModule{}

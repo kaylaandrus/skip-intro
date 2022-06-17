@@ -2,7 +2,7 @@ import { AuthService } from "../auth/auth.service";
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { tap } from "rxjs";
-import { Show } from "../tvshow/tvshow.model";
+import { Show } from "../show/show.model";
 
 const FIREBASE_DB_URL = "https://skip-intro-7b47f-default-rtdb.firebaseio.com/";
 

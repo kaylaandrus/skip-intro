@@ -1,5 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { Show } from './show.model';
+
 
 @Component({
   selector: 'app-show',
@@ -11,9 +12,13 @@ export class ShowComponent implements OnInit {
 
   @Input() show: Show;
 
+  @Output() showSelected = new EventEmitter<void>();
+
   constructor() { }
 
   ngOnInit(): void {
   }
-
+  onShowSelected() {
+    this.showSelected.emit();
+  }
 }

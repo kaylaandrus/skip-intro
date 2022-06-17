@@ -3,7 +3,7 @@ export class Show {
     public title: string,
     public releaseDate: number,
     public genre: string,
-    public rating: string,
+    public library: string,
     public coverImg: string
   ) {}
 }

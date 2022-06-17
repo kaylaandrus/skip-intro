@@ -1,36 +1,50 @@
 <div class="row">
   <div class="col-md-12">
-    <h2>Show Title</h2>
+    <h2>{{ show.title }}</h2>
   </div>
 </div>
 
 <div class="row">
   <div class="col-md-12">
-    <h3>Release Year</h3>
+    <h3>{{ show.releaseDate }}</h3>
   </div>
 </div>
 
 <div class="row">
   <div class="col-md-12">
-    <p>Genre</p>
+    <p>{{ show.genre }}</p>
   </div>
 </div>
 
 <div class="row">
   <div class="col-md-12">
-    <p>Rating</p>
+    <p>{{ show.library }}</p>
   </div>
 </div>
 
 <div class="row">
   <div class="col-md-12">
-    <img src="" alt="" class="img-responsive"/>
+    <img src="{{ show.coverImg }}" alt="{{ show.title }}" class="img-responsive" style="max-height: 250px"/>
   </div>
 </div>
-
-<div class="row">
+<hr>
+<div class="row mt-4">
   <div class="col-md-12">
-    <small>Tags</small>
+    <div class="dropdown" appDropdown>
+      <button
+      class="btn btn-primary dropdown-toggle"
+      type="button"
+      id="dropdownMenuButton"
+      aria-haspopup="true"
+      aria-expanded="false">
+      Edit Show
+    </button>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+      <a class="dropdown-item">Edit Show</a>
+      <div class="dropdown-item">Remove Show</div>
+    </div>
+    </div>
   </div>
 </div>
 <hr/>
+

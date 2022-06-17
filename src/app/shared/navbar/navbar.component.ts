@@ -1,6 +1,7 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, Output } from '@angular/core';
 import { AuthService } from '../auth/auth.service';
 import { User } from '../auth/user.model';
+import { EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-navbar',
@@ -8,6 +9,10 @@ import { User } from '../auth/user.model';
   styleUrls: ['./navbar.component.css'],
 })
 export class NavbarComponent implements OnInit, OnDestroy {
+  @Output() currentPage = new EventEmitter<string>();
+  collapsed: boolean = true;
+  show: boolean = false;
+
   isAuthenticated = false;
 
   constructor(private authService: AuthService) {}
@@ -22,5 +27,8 @@ export class NavbarComponent implements OnInit, OnDestroy {
   }
   onSignOut() {
     this.authService.signOut();
+  }
+  onSelectPage(page: string) {
+    this.currentPage.emit(page);
   }
 }

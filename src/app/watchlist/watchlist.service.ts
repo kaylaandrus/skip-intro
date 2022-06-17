@@ -5,14 +5,14 @@ import { Show } from '../shared/show/show.model';
   providedIn: 'root',
 })
 export class WatchlistService {
-  selectedTvshow = new Subject<Show>();
+  selectedShow = new Subject<Show>();
   watchlistChanged = new Subject<Show[]>();
-  private myTvshows: Show[] = [];
+  private myShows: Show[] = [];
 
   saveShowToWatchlist(show: Show) {
-    this.myTvshows.push(show);
-    this.selectedTvshow.next(show);
-    this.watchlistChanged.next(this.myTvshows.slice());
+    this.myShows.push(show);
+    this.selectedShow.next(show);
+    this.watchlistChanged.next(this.myShows.slice());
   }
 
   constructor() {}

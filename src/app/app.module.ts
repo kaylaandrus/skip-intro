@@ -4,7 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-import { WatchlistComponent } from './watchlist/watchlist.component';
+import { WatchlistModule } from './watchlist/watchlist.module';
 import { ShowListComponent } from './watchlist/show-list/show-list.component';
 import { ShowDetailsComponent } from './watchlist/show-details/show-details.component';
 
@@ -22,9 +22,7 @@ import { HomeComponent } from './home/home.component';
 import { FooterComponent } from './footer/footer.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptorService } from './shared/auth/auth-interceptor.service';
-import { ShowComponent } from './shared/show/show.component';
 import { StreamingServicesComponent } from './what-to-watch/streaming-services/streaming-services.component';
-import { WatchlistEditorComponent } from './watchlist/watchlist-editor/watchlist-editor.component';
 
 
 
@@ -37,11 +35,8 @@ import { WatchlistEditorComponent } from './watchlist/watchlist-editor/watchlist
     ShowSearchComponent,
     ShowResultsComponent,
     WhatToWatchComponent,
-    WatchlistComponent,
-    ShowComponent,
     NavbarComponent,
     StreamingServicesComponent,
-    WatchlistEditorComponent
   ],
   imports: [
     BrowserModule,
@@ -49,7 +44,8 @@ import { WatchlistEditorComponent } from './watchlist/watchlist-editor/watchlist
     FormsModule,
     HttpClientModule,
     SharedModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    WatchlistModule,
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS,

@@ -31,7 +31,6 @@ import { StreamingServicesComponent } from './what-to-watch/streaming-services/s
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent,
     FooterComponent,
     ShowListComponent,
     ShowSearchComponent,
@@ -39,6 +38,7 @@ import { StreamingServicesComponent } from './what-to-watch/streaming-services/s
     WhatToWatchComponent,
     WatchlistComponent,
     TvshowComponent,
+    NavbarComponent,
     StreamingServicesComponent
   ],
   imports: [

@@ -7,6 +7,7 @@ import { Show } from '../shared/show/show.model';
 export class WatchlistService {
   selectedShow = new Subject<Show>();
   watchlistChanged = new Subject<Show[]>();
+
   private myShows: Show[] = [
       new Show(
         'Stranger Things: Season 4',
@@ -36,6 +37,7 @@ export class WatchlistService {
     this.selectedShow.next(show);
     this.watchlistChanged.next(this.myShows.slice());
   }
-
-  constructor() {}
+  getShows() {
+    return this.myShows.slice();
+  }
 }

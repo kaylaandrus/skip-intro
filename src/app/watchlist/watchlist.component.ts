@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Show } from '../shared/show/show.model';
 
 @Component({
   selector: 'app-watchlist',
@@ -6,12 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./watchlist.component.css'],
 })
 export class WatchlistComponent implements OnInit {
-  tvShowTest = [
-    'Game of Thrones',
-    'Gilmore Girls',
-    'The Boys',
-    'Stranger Things',
-  ];
+
+  selectedShow: Show;
 
   constructor() {}
 

@@ -7,11 +7,11 @@ import { AuthService } from './shared/auth/auth.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
+
   constructor(private authService: AuthService) {}
 
   ngOnInit(): void {
     this.authService.automaticSignIn();
   }
-
-  title = 'skip-intro';
 }
+

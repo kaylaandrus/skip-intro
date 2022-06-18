@@ -1,30 +1,36 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from './home/home.component';
+import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+
+
 import { AuthComponent } from './shared/auth/auth.component';
-import { WatchlistComponent } from './watchlist/watchlist.component';
-import { AmazonprimeComponent } from './what-to-watch/amazonprime/amazonprime.component';
-import { DisneyplusComponent } from './what-to-watch/disneyplus/disneyplus.component';
-import { HbomaxComponent } from './what-to-watch/hbomax/hbomax.component';
-import { HuluComponent } from './what-to-watch/hulu/hulu.component';
-import { NetflixComponent } from './what-to-watch/netflix/netflix.component';
-import { WhatToWatchComponent } from './what-to-watch/what-to-watch.component';
 import { AuthGuard } from './shared/auth/auth.guard';
 
+import { WatchlistComponent } from './watchlist/watchlist.component';
+import { AmazonprimeComponent } from './what-to-watch/streaming-services/amazonprime/amazonprime.component';
+import { DisneyplusComponent } from './what-to-watch/streaming-services/disneyplus/disneyplus.component';
+import { HbomaxComponent } from './what-to-watch/streaming-services/hbomax/hbomax.component';
+import { HuluComponent } from './what-to-watch/streaming-services/hulu/hulu.component';
+import { NetflixComponent } from './what-to-watch/streaming-services/netflix/netflix.component';
+import { WhatToWatchComponent } from './what-to-watch/what-to-watch.component';
+
+
 const routes: Routes = [
-  { path: '', component: HomeComponent},
-  { path: 'auth', component: AuthComponent},
-  { path: 'my-watchlist', component: WatchlistComponent, canActivate: [AuthGuard] },
+  { path: '', redirectTo: "./home", pathMatch: "full"},
+  { path: 'auth', loadChildren: () => import("./shared/auth/auth.module").then(m => m.AuthModule)},
+  { path: 'my-watchlist', loadChildren: () => import("./watchlist/watchlist.module").then(m => m.WatchlistModule)},
   { path: 'what-to-watch', component: WhatToWatchComponent, canActivate: [AuthGuard] },
-  { path: 'what-to-watch/netflix', component: NetflixComponent },
-  { path: 'what-to-watch/hbomax', component: HbomaxComponent },
-  { path: 'what-to-watch/hulu', component: HuluComponent },
-  { path: 'what-to-watch/amazonprime', component: AmazonprimeComponent },
-  { path: 'what-to-watch/disneyplus', component: DisneyplusComponent },
+  { path: 'what-to-watch/streaming-services/netflix', component: NetflixComponent },
+  { path: 'what-to-watch/streaming-services/hbomax', component: HbomaxComponent },
+  { path: 'what-to-watch/streaming-services/hulu', component: HuluComponent },
+  { path: 'what-to-watch/streaming-services/amazonprime', component: AmazonprimeComponent },
+  { path: 'what-to-watch/streaming-services/disneyplus', component: DisneyplusComponent },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {
+    preloadingStrategy: PreloadAllModules,
+    initialNavigation: "enabled"})
+  ],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}

@@ -50,7 +50,7 @@ export class WatchlistService {
     this.myShows = showArr;
     this.showsChanged.next(this.myShows.slice());
   }
-  deleteShowFromMyShows(idx: number) {
+  removeWatchlistShow(idx: number) {
     if (idx >= this.myShows.length || idx <0) return;
     this.myShows.splice(idx, 1);
     this.showsChanged.next(this.myShows.slice());

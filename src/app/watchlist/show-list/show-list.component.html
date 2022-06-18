@@ -1,27 +1,16 @@
-<app-show
-  *ngFor="let showEl of myShows"
-  [show]="showEl"
-  (showSelected)="handleShowSelected(showEl)"
-></app-show>
 
-<div class="row mb-3" *ngFor="let show of myShows">
+<div class="row">
   <div class="col-md-12">
-    <a href="#" class="list-group-item clear-fix">
-      <div class="float-left">
-        <h4 class="list-group-item-heading">{{ show.title }}</h4>
-        <p class="list-group-item-text mb-0">{{ show.genre }}</p>
-      </div>
-      <div class="float-right">
-        <img
-          src="{{ show.coverImg }}"
-          alt="{{ show.title }}"
-          class="img-responsive rounded"
-          style="max-height: 50px"
-        />
-      </div>
-    </a>
+    <button class="btn btn-primary mr-3" (click)="onAddNewShow()">
+      Add Show
+    </button>
+    <button class="btn btn-secondary" (click)="onSortShows()">
+  Sort by {{ sortField == "library" ? "Title" : "Library" }}
+    </button>
   </div>
 </div>
+
+
 
 <!-- <app-watchlist-editor></app-watchlist-editor> -->
 <!--  ^^^ NO FUNCTIONALITY YET ^^^ -->

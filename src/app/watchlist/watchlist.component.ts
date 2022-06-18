@@ -8,7 +8,7 @@ import { Show } from '../shared/show/show.model';
 })
 export class WatchlistComponent implements OnInit {
 
-  selectedShow: Show;
+  selectedWatchlistShow: Show;
 
   constructor() {}
 

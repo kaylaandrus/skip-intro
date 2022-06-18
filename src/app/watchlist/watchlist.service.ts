@@ -46,6 +46,16 @@ export class WatchlistService {
   getTvshow(idx: number) {
     return this.myShows.slice()[idx];
   }
+  // UPDATE (one)
+  updateShow(index: number, updatedShowDetails: Show) {
+    this.myShows[index] = updatedShowDetails;
+    this.showsChanged.next(this.myShows.slice());
+  }
+
+  updateShows(showArr: Show[] = []) {
+    this.myShows = showArr;
+    this.showsChanged.next(this.myShows.slice());
+  }
 
   // Delete show
   deleteShowFromMyTvshows(idx: number) {

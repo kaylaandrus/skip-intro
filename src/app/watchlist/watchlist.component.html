@@ -1,14 +1,14 @@
 <div class="row justify-content-between">
   <div class="col-md-6">
     <h1>My Watchlist</h1>
-    <app-show-list (currentSelectedShow)="selectedShow=$event"></app-show-list>
+    <app-show-list
+      (currentSelectedShow)="selectedShow = $event"
+    ></app-show-list>
   </div>
   <div class="col-md-5">
-    <app-show-details
-    *ngIf="selectedShow; else infoText"
-    [show]="selectedShow">
-  </app-show-details>
-  <ng-template #infoText><p>Find a Show</p></ng-template>
+    <app-show-details *ngIf="selectedShow; else infoText" [show]="selectedShow">
+    </app-show-details>
+    <ng-template #infoText><p>Find a Show</p></ng-template>
   </div>
 
   <div class="col-md-5">

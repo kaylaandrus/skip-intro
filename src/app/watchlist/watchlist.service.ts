@@ -5,7 +5,7 @@ import { Show } from '../shared/show/show.model';
   providedIn: 'root',
 })
 export class WatchlistService {
-  selectedShow = new Subject<Show>();
+  selectedWatchlistShow = new Subject<Show>();
   showsChanged = new Subject<Show[]>();
 
   private myShows: Show[] = [
@@ -32,35 +32,26 @@ export class WatchlistService {
     ),
   ];
 
-  // Save show to watchlist
   saveShowToWatchlist(show: Show) {
     this.myShows.push(show);
-    this.selectedShow.next(show);
     this.showsChanged.next(this.myShows.slice());
   }
-  // Watch many
-  getTvshows() {
+  getWatchlistShows() {
     return this.myShows.slice();
   }
-  // Watch one
-  getTvshow(idx: number) {
+  getWatchlistShow(idx: number) {
     return this.myShows.slice()[idx];
   }
-  // UPDATE (one)
-  updateShow(index: number, updatedShowDetails: Show) {
+  updateWatchlistShow(index: number, updatedShowDetails: Show) {
     this.myShows[index] = updatedShowDetails;
     this.showsChanged.next(this.myShows.slice());
   }
-
-  updateShows(showArr: Show[] = []) {
+  setWatchlistShows(showArr: Show[] = []) {
     this.myShows = showArr;
     this.showsChanged.next(this.myShows.slice());
   }
-
-  // Delete show
-  deleteShowFromMyTvshows(idx: number) {
-    if (idx === -1) return;
-    this.selectedShow.next(this.myShows[idx]);
+  deleteShowFromMyShows(idx: number) {
+    if (idx >= this.myShows.length || idx <0) return;
     this.myShows.splice(idx, 1);
     this.showsChanged.next(this.myShows.slice());
   }

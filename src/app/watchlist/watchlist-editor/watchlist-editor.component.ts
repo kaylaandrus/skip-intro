@@ -33,7 +33,7 @@ export class WatchlistEditorComponent implements OnInit {
       this.isEditMode = params['id'] != null;
 
       if (this.isEditMode == true) {
-        this.showDetails = this.watchlistService.getTvshow(this.idx);
+        this.showDetails = this.watchlistService.getWatchlistShow(this.idx);
       }
     });
   }
@@ -48,7 +48,7 @@ export class WatchlistEditorComponent implements OnInit {
     // Conditionally call different methods depending on what "mode" we are in
     if (this.isEditMode == true) {
       // Edit existing show (using the showDetails)
-      this.watchlistService.updateShow(this.idx, this.showDetails);
+      this.watchlistService.updateWatchlistShow(this.idx, this.showDetails);
     } else {
       // Save a new book (using the bookDetails)
       this.watchlistService.saveShowToWatchlist(this.showDetails);

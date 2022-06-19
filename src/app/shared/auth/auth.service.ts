@@ -1,15 +1,25 @@
-import { HttpClient } from "@angular/common/http";
-import { BehaviorSubject,exhaustMap, tap } from "rxjs";
-import { environment } from "src/environments/environment";
-import { Router } from "@angular/router";
-import { Injectable } from "@angular/core";
+import { HttpClient } from '@angular/common/http';
+import { BehaviorSubject, tap } from 'rxjs';
+import { environment } from 'src/environments/environment';
+import { Router } from '@angular/router';
+import { Injectable } from '@angular/core';
 
-import { User } from "./user.model";
+import { User } from './user.model';
 
 const SIGN_UP_URL =
-'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyBy1E_D6OgqJ-3c3mmP09rUm6GRxHlqZko';
+  'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyBy1E_D6OgqJ-3c3mmP09rUm6GRxHlqZko';
 const SIGN_IN_URL =
-'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=IzaSyBy1E_D6OgqJ-3c3mmP09rUm6GRxHlqZko';
+  'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=IzaSyBy1E_D6OgqJ-3c3mmP09rUm6GRxHlqZko';
+
+export interface AuthResData {
+  kind: string;
+  idToken: string;
+  email: string;
+  refreshToken: string;
+  expiresIn: string;
+  localId: string;
+  registered?: boolean;
+}
 
 export interface UserData {
   email: string;
@@ -17,9 +27,6 @@ export interface UserData {
   _token: string;
   _tokenExpirationDate: string;
 }
-@Injectable({
-  providedIn: "root",
-})
 
 @Injectable({
   providedIn: 'root',
@@ -33,7 +40,7 @@ export class AuthService {
 
   signUpToFirebase(email: string, password: string) {
     return this.http
-      .post<any>(SIGN_UP_URL + environment.firebaseAPIKey, {
+      .post<AuthResData>(SIGN_UP_URL + environment.firebaseAPIKey, {
         email,
         password,
         returnSecureToken: true,
@@ -48,7 +55,7 @@ export class AuthService {
   }
   signInToFirebase(email: string, password: string) {
     return this.http
-      .post<any>(SIGN_IN_URL + environment.firebaseAPIKey, {
+      .post<AuthResData>(SIGN_IN_URL + environment.firebaseAPIKey, {
         email,
         password,
         returnSecureToken: true,
@@ -82,14 +89,12 @@ export class AuthService {
       this.currentUser.next(loadedUser);
 
       const expDuration =
-      new Date(_tokenExpirationDate).getTime() - new Date().getTime();
+        new Date(_tokenExpirationDate).getTime() - new Date().getTime();
       this.automaticSignOut(expDuration);
     }
   }
 
   automaticSignOut(expDuration: number) {
-    console.log('Expiration Duration:', expDuration);
-
     this.tokenExpTimer = setTimeout(() => {
       this.signOut();
     }, expDuration);

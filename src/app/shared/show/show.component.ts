@@ -12,6 +12,7 @@ import { Show } from './show.model';
 export class ShowComponent implements OnInit {
 
   @Input() show: Show;
+  @Input() showIndex: number;
 
   constructor(private watchlistService: WatchlistService) {}
 

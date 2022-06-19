@@ -1,4 +1,5 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import { WatchlistService } from 'src/app/watchlist/watchlist.service';
 import { Show } from './show.model';
 
 
@@ -12,13 +13,11 @@ export class ShowComponent implements OnInit {
 
   @Input() show: Show;
 
-  @Output() showSelected = new EventEmitter<void>();
-
-  constructor() { }
+  constructor(private watchlistService: WatchlistService) {}
 
   ngOnInit(): void {
   }
   onShowSelected() {
-    this.showSelected.emit();
+    this.watchlistService.selectedWatchlistShow.next(this.show);
   }
 }

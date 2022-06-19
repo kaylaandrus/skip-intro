@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { AuthService, AuthResData } from './auth.service';
+import { AuthService } from './auth.service';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
 
@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./auth.component.css'],
 })
 export class AuthComponent implements OnInit {
-  authObs: Observable<AuthResData>;
+  authObs: Observable<any>;
   signInMode = true;
 
   constructor(private authService: AuthService, private router: Router) {}

@@ -11,36 +11,20 @@ const SIGN_UP_URL =
 const SIGN_IN_URL =
   'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=IzaSyBy1E_D6OgqJ-3c3mmP09rUm6GRxHlqZko';
 
-export interface AuthResData {
-  kind: string;
-  idToken: string;
-  email: string;
-  refreshToken: string;
-  expiresIn: string;
-  localId: string;
-  registered?: boolean;
-}
-
-export interface UserData {
-  email: string;
-  id: string;
-  _token: string;
-  _tokenExpirationDate: string;
-}
-
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
   private tokenExpTimer: any;
 
+  userToken: string = null;
   currentUser = new BehaviorSubject<User>(null);
 
-  constructor(private http: HttpClient, private router: Router) {}
+  constructor(private http: HttpClient) {}
 
   signUpToFirebase(email: string, password: string) {
     return this.http
-      .post<AuthResData>(SIGN_UP_URL + environment.firebaseAPIKey, {
+      .post<any>(SIGN_UP_URL + environment.firebaseAPIKey, {
         email,
         password,
         returnSecureToken: true,
@@ -55,7 +39,7 @@ export class AuthService {
   }
   signInToFirebase(email: string, password: string) {
     return this.http
-      .post<AuthResData>(SIGN_IN_URL + environment.firebaseAPIKey, {
+      .post<any>(SIGN_IN_URL + environment.firebaseAPIKey, {
         email,
         password,
         returnSecureToken: true,
@@ -71,10 +55,9 @@ export class AuthService {
     this.currentUser.next(null);
     localStorage.removeItem('userData');
     if (this.tokenExpTimer) clearTimeout(this.tokenExpTimer);
-    this.router.navigate(['auth']);
   }
   automaticSignIn() {
-    const userData: UserData = JSON.parse(localStorage.getItem('userData'));
+    const userData = JSON.parse(localStorage.getItem('userData'));
 
     if (!userData) return;
     const { email, id, _token, _tokenExpirationDate } = userData;
@@ -102,12 +85,12 @@ export class AuthService {
   handleAuth(email: string, userId: string, token: string, expiresIn: number) {
     const expDate = new Date(new Date().getTime() + expiresIn * 1000);
 
-    const formUser = new User(email, userId, token, expDate);
+    const newUser = new User(email, userId, token, expDate);
 
-    this.currentUser.next(formUser);
+    this.currentUser.next(newUser);
 
     this.automaticSignOut(expiresIn * 1000);
 
-    localStorage.setItem('userData', JSON.stringify(formUser));
+    localStorage.setItem('show_user_data', JSON.stringify(newUser));
   }
 }

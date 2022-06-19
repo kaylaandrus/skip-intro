@@ -24,7 +24,7 @@ export class HTTPService {
   }
 
   // *METHOD* - Fetch books from Firebase DB
-  fetchBooksFromFirebase() {
+  fetchShowsFromFirebase() {
     return this.http.get(this.FIREBASE_DB_URL, {}).pipe(
       tap((shows: Show[]) => {
         this.watchlistService.setWatchlistShows(shows);

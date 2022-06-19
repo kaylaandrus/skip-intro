@@ -22,8 +22,6 @@ export class HTTPService {
       console.log('Firebase DB Response:', res);
     });
   }
-
-  // *METHOD* - Fetch books from Firebase DB
   fetchShowsFromFirebase() {
     return this.http.get(this.FIREBASE_DB_URL, {}).pipe(
       tap((shows: Show[]) => {
@@ -31,10 +29,4 @@ export class HTTPService {
       })
     );
   }
-  // FIGURE OUT WHY THIS DOESNT WORK
-  // fetchShowsFromFirebase() {
-  //return this.http.get(FIREBASE_DB_URL, {}).pipe(tap((show: Shows[]) => {
-  //this.watchlistService.setWatchlistShows(shows);
-  //})
-  //);
 }

@@ -33,7 +33,6 @@ export class NavbarComponent implements OnInit, OnDestroy {
   onSaveData() {
     this.httpService.saveShowsToFirebase();
   }
-
   onFetchData() {
     this.httpService.fetchShowsFromFirebase().subscribe();
   }

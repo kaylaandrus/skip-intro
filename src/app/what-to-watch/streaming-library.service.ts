@@ -10,7 +10,14 @@ export class StreamingLibraryService {
   showListChanged = new Subject<Show[]>();
 
   private allShows: Show[] = [];
-  getShows() {
+
+  fetchShows() {
     return this.allShows.slice();
+  }
+  fetchShowsFromAPI(query: string) {
+    const formattedQuery = query
+    .split("")
+    .join ("+")
+    .toLowerCase();
   }
 }

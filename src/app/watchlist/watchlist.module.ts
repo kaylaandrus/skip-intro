@@ -5,6 +5,7 @@ import { ShowDetailsComponent } from "./show-details/show-details.component";
 import { ShowListComponent } from "./show-list/show-list.component";
 import { WatchlistEditorComponent } from "./watchlist-editor/watchlist-editor.component";
 import { WatchlistComponent } from "./watchlist.component";
+import { WatchlistHomeComponent } from './watchlist-home/watchlist-home.component';
 
 
 @NgModule({
@@ -12,7 +13,8 @@ import { WatchlistComponent } from "./watchlist.component";
   WatchlistComponent,
   WatchlistEditorComponent,
   ShowListComponent,
-  ShowDetailsComponent
+  ShowDetailsComponent,
+  WatchlistHomeComponent
   ],
   imports: [SharedModule, RouterModule]
 })

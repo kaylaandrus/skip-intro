@@ -21,7 +21,7 @@ export class AuthComponent implements OnInit {
     this.signInMode = !this.signInMode;
   }
 
-  onAuthFormSubmit(formObj: NgForm) {
+  authFormSubmit(formObj: NgForm) {
     const { email, password } = formObj.value;
 
     if (!email || !password) return;

@@ -4,6 +4,10 @@ import { WatchlistService } from '../watchlist.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 
+
+
+
+
 @Component({
   selector: 'app-show-list',
   templateUrl: './show-list.component.html',
@@ -19,6 +23,7 @@ export class ShowListComponent implements OnInit, OnDestroy {
       '100',
       'https://upload.wikimedia.org/wikipedia/en/7/78/Stranger_Things_season_4.jpg')];
   sortField = "library";
+  sortSwitcher = true;
 
   constructor(
     private watchlistService: WatchlistService,
@@ -45,6 +50,12 @@ export class ShowListComponent implements OnInit, OnDestroy {
     this.router.navigate(["new"], {relativeTo: this.route });
   }
   onSortShows() {
-    this.sortField = this.sortField == "library" ? "title" : "library";
+    this.sortSwitcher = !this.sortSwitcher;
+
+    if (this.sortSwitcher) {
+      this.sortField = 'library';
+    } else {
+      this.sortField = 'title';
+    }
   }
 }

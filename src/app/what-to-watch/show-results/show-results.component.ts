@@ -10,7 +10,7 @@ import { WatchlistService } from 'src/app/watchlist/watchlist.service';
 })
 export class ShowResultsComponent implements OnInit {
 
-  allShows: Show[] = [];
+  streamingLibraryShows: Show[] = [];
 
   constructor(
     private streamingLibraryService: StreamingLibraryService,
@@ -18,9 +18,13 @@ export class ShowResultsComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
-    this.allShows = this.streamingLibraryService.getShows();
+    this.streamingLibraryShows = this.streamingLibraryService.getShows();
+    this.streamingLibraryService.showListChanged.subscribe((updatedShows: Show[]) => {
+      this.streamingLibraryShows = updatedShows;
+    });
   }
   onSaveShow(show: Show) {
-    return this.watchlistService.saveShowToWatchlist(show);
+    this.watchlistService.saveShowToWatchlist(show);
+    this.watchlistService.selectedWatchlistShow.next(show);
   }
 }

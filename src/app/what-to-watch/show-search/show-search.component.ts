@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { StreamingLibraryService } from '../streaming-library.service';
 
 @Component({
   selector: 'app-show-search',
@@ -7,9 +8,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ShowSearchComponent implements OnInit {
 
-  constructor() { }
+  constructor(private streamingLibraryService: StreamingLibraryService) {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
 }

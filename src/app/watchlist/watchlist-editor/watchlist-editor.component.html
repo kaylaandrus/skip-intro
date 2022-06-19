@@ -20,19 +20,19 @@
 
   <!-- RELEASE DATE - input -->
   <div class="form-group">
-    <label for="author">Release Date</label>
+    <label for="releaseDate">Release Date</label>
     <input
       type="number"
       class="form-control"
-      id="author"
-      name="author"
+      id="releaseDate"
+      name="releaseDate"
       [ngModel]="showDetails.releaseDate"
-      #authorRef="ngModel"
+      #releaseDateRef="ngModel"
       required
     />
     <span
       class="help-block text-danger"
-      *ngIf="authorRef.touched && !authorRef.valid"
+      *ngIf="releaseDateRef.touched && !releaseDateRef.valid"
       >Please enter a valid release date!</span
     >
   </div>
@@ -49,13 +49,20 @@
       required
     >
       <option disabled selected value>Please select a genre</option>
-      <option value="mystery">Suspense/Thriller</option>
+      <option value="thriller">Thriller</option>
       <option value="sci-fi">Sci-fi</option>
-      <option value="non-fiction">Docu-series</option>
+      <option value="documentary">Documentary</option>
       <option value="romance">Romance</option>
-      <option value="programming">Horror</option>
-      <option value="romance">Comedy</option>
-      <option value="romance">Drama</option>
+      <option value="horror">Horror</option>
+      <option value="comedy">Comedy</option>
+      <option value="drama">Drama</option>
+      <option value="action">Action</option>
+      <option value="western">Western</option>
+      <option value="anthology">Anthology</option>
+      <option value="children's">Children's</option>
+      <option value="anime">Anime</option>
+      <option value="educational">Educational</option>
+      <option value="reality">Reality</option>
     </select>
     <span
       class="help-block text-danger"

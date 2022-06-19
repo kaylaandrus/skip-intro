@@ -12,13 +12,12 @@ import { WatchlistService } from '../watchlist.service';
 export class WatchlistEditorComponent implements OnInit {
   idx: number;
   isEditMode = false;
-
   showDetails: Show = {
-    title: 'Test',
-    releaseDate: 1,
-    genre: 'Test',
-    library: 'Test',
-    coverImg: 'TestImg',
+    title: "",
+    releaseDate: null,
+    genre: "",
+    library: "",
+    coverImg: "",
   };
 
   constructor(
@@ -39,22 +38,16 @@ export class WatchlistEditorComponent implements OnInit {
   }
 
   onShowFormSubmit(formObj: NgForm) {
-    // Destructure the show properties from the "formObj"
     const { title, releaseDate, genre, library, coverImg } = formObj.value;
 
-    // Set the local "showDetails" object to the values from the "formObj"
     this.showDetails = new Show(title, releaseDate, genre, library, coverImg);
 
-    // Conditionally call different methods depending on what "mode" we are in
     if (this.isEditMode == true) {
-      // Edit existing show (using the showDetails)
       this.watchlistService.updateWatchlistShow(this.idx, this.showDetails);
     } else {
-      // Save a new book (using the bookDetails)
       this.watchlistService.saveShowToWatchlist(this.showDetails);
     }
 
-    // Reset the form
     this.onResetForm();
   }
 

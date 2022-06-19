@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Show } from 'src/app/shared/show/show.model';
+import { StreamingLibraryService } from '../streaming-library.service';
 
 @Component({
   selector: 'app-show-results',
@@ -8,18 +9,11 @@ import { Show } from 'src/app/shared/show/show.model';
 })
 export class ShowResultsComponent implements OnInit {
 
-  allShows: Show[] = [
-    new Show(
-          "Outlander Season 5",
-          2020,
-          "Drama",
-          "https://static.wikia.nocookie.net/outlander/images/b/b9/S5-Key-Art.jpeg/revision/latest?cb=20200103151243",
-          "Starz"
-        )
-  ];
-  constructor() { }
+  allShows: Show[] = [];
+
+  constructor(private streamingLibraryService: StreamingLibraryService) { }
 
   ngOnInit(): void {
+    this.allShows = this.streamingLibraryService.getShows();
   }
-
 }

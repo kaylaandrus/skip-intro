@@ -1,5 +1,8 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Show } from 'src/app/shared/show/show.model';
+import { WatchlistService } from '../watchlist.service';
+
 
 @Component({
   selector: 'app-show-details',
@@ -8,11 +11,17 @@ import { Show } from 'src/app/shared/show/show.model';
 })
 export class ShowDetailsComponent implements OnInit {
 
-  @Input() show: Show;
+  show: Show;
+  idx: number;
 
-  constructor() { }
+  constructor(
+    private router: ActivatedRoute,
+    private watchlistService: WatchlistService) {}
 
   ngOnInit(): void {
+    this.router.params.subscribe((params: Params) => {
+      this.idx = +params['id'];
+      this.show = this.watchlistService.getWatchlistShow(this.idx);
+    });
   }
-
 }

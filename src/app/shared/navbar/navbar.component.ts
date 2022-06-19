@@ -1,6 +1,7 @@
 import { Component, OnInit, OnDestroy, Output } from '@angular/core';
 import { AuthService } from '../auth/auth.service';
 import { User } from '../auth/user.model';
+import { HTTPService } from '../http/http.service';
 
 @Component({
   selector: 'app-navbar',
@@ -13,7 +14,9 @@ export class NavbarComponent implements OnInit, OnDestroy {
 
   isAuthenticated = false;
 
-  constructor(private authService: AuthService) {}
+  constructor(
+    private authService: AuthService,
+    private httpService: HTTPService) {}
 
   ngOnInit(): void {
     this.authService.currentUser.subscribe((user) => {
@@ -26,4 +29,11 @@ export class NavbarComponent implements OnInit, OnDestroy {
   onSignOut() {
     this.authService.signOut();
   }
+  onSaveData() {
+    this.httpService.saveShowsToFirebase();
+  }
+  // CODE BELOW SHOULD WORK ONCE FIXED ON HTTP SERVICE
+  //onFetchData() {
+    //this.httpService.fetchShowsFromFirebase().subscribe();
+  //}
 }

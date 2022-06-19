@@ -4,6 +4,9 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 import { AuthComponent } from './shared/auth/auth.component';
 import { AuthGuard } from './shared/auth/auth.guard';
+import { ShowDetailsComponent } from './watchlist/show-details/show-details.component';
+import { ShowResolverService } from './watchlist/show-resolver.service';
+import { WatchlistEditorComponent } from './watchlist/watchlist-editor/watchlist-editor.component';
 
 
 import { AmazonprimeComponent } from './what-to-watch/streaming-services/amazonprime/amazonprime.component';
@@ -19,6 +22,8 @@ const routes: Routes = [
   { path: 'auth', loadChildren: () => import("./shared/auth/auth.module").then(m => m.AuthModule)},
   { path: 'my-watchlist', loadChildren: () => import("./watchlist/watchlist.module").then(m => m.WatchlistModule)},
   { path: 'what-to-watch', component: WhatToWatchComponent, canActivate: [AuthGuard] },
+  { path: ':id', component: ShowDetailsComponent, resolve: [ShowResolverService]},
+  { path: ':id/edit', component: WatchlistEditorComponent, resolve: [ShowResolverService]},
   { path: 'what-to-watch/streaming-services/netflix', component: NetflixComponent },
   { path: 'what-to-watch/streaming-services/hbomax', component: HbomaxComponent },
   { path: 'what-to-watch/streaming-services/hulu', component: HuluComponent },

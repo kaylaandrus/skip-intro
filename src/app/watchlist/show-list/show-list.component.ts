@@ -4,10 +4,6 @@ import { WatchlistService } from '../watchlist.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 
-
-
-
-
 @Component({
   selector: 'app-show-list',
   templateUrl: './show-list.component.html',

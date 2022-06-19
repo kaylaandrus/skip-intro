@@ -42,14 +42,23 @@
             </li>
           </ul>
           <li class="nav-item dropdown" *ngIf="isAuthenticated">
-          <a class="nav-link dropdown-toggle"
+          <a
+          class="nav-link dropdown-toggle"
           style="cursor: pointer"
           id="navbarDropdownMenuLink"
           data-toggle="dropdown"
           aria-haspopup="true"
           [attr.aria-expanded]="show"
           (click)="show = !show"
-          [class.show]="show">Settings</a>
+          [class.show]="show">
+          Settings
+        </a>
+          <a
+          class="dropdown-item"
+          style="cursor: pointer"
+          (click)="onSaveData()">
+          Save Data
+      </a>
         </li>
         <li class="nav-item" *ngIf="!isAuthenticated" (click)="onSignOut()">
           <a class="nav-link active" aria-current="page" routerLink="auth">Authentication</a>

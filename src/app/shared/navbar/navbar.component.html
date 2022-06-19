@@ -15,10 +15,7 @@
             >My List</a
           >
         </li>
-        <li class="nav-item" *ngIf="isAuthenticated">
-          <a class="nav-link"></a>
-        </li>
-        <li class="nav-item dropdown">
+        <li class="nav-item dropdown" *ngIf="isAuthenticated">
           <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="true">
             What To Watch
           </a>
@@ -44,9 +41,18 @@
               >
             </li>
           </ul>
+          <li class="nav-item dropdown" *ngIf="isAuthenticated">
+          <a class="nav-link dropdown-toggle"
+          style="cursor: pointer"
+          id="navbarDropdownMenuLink"
+          data-toggle="dropdown"
+          aria-haspopup="true"
+          [attr.aria-expanded]="show"
+          (click)="show = !show"
+          [class.show]="show">Settings</a>
         </li>
         <li class="nav-item" *ngIf="!isAuthenticated" (click)="onSignOut()">
-          <a class="nav-link active" aria-current="page" routerLink="auth">Sign Out</a>
+          <a class="nav-link active" aria-current="page" routerLink="auth">Authentication</a>
         </li>
       </ul>
       <form class="d-flex">

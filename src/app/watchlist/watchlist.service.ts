@@ -40,7 +40,7 @@ export class WatchlistService {
     return this.myShows.slice();
   }
   getWatchlistShow(idx: number) {
-    return this.myShows.slice()[idx];
+    return this.myShows.slice()[idx]
   }
   updateWatchlistShow(index: number, updatedShowDetails: Show) {
     this.myShows[index] = updatedShowDetails;

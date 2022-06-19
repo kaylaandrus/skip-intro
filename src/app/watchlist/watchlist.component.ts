@@ -9,8 +9,6 @@ import { Show } from '../shared/show/show.model';
 })
 export class WatchlistComponent implements OnInit {
 
-  selectedWatchlistShow: Show;
-
   constructor() {}
 
   ngOnInit(): void {}

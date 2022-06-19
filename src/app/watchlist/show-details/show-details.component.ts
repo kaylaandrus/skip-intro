@@ -15,13 +15,21 @@ export class ShowDetailsComponent implements OnInit {
   idx: number;
 
   constructor(
-    private router: ActivatedRoute,
+    private route: ActivatedRoute,
+    private router: Router,
     private watchlistService: WatchlistService) {}
 
   ngOnInit(): void {
-    this.router.params.subscribe((params: Params) => {
+    this.route.params.subscribe((params: Params) => {
       this.idx = +params['id'];
       this.show = this.watchlistService.getWatchlistShow(this.idx);
     });
+  }
+  onEditShow() {
+    this.router.navigate(['../', this.idx, 'edit'], { relativeTo: this.route });
+  }
+  onRemoveShow() {
+    this.watchlistService.removeWatchlistShow(this.idx);
+    this.router.navigate(['watchlist']);
   }
 }

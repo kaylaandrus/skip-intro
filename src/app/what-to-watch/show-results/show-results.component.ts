@@ -18,7 +18,7 @@ export class ShowResultsComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
-    this.streamingLibraryShows = this.streamingLibraryService.getShows();
+    this.streamingLibraryShows = this.streamingLibraryService.fetchShows();
     this.streamingLibraryService.showListChanged.subscribe((updatedShows: Show[]) => {
       this.streamingLibraryShows = updatedShows;
     });

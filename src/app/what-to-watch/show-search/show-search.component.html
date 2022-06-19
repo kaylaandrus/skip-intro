@@ -1,1 +1,18 @@
-<p>show-search works!</p>
+<form #searchFormRef="ngForm" (ngSubmit)="onShowSearch(searchFormRef.value.search)" class="form-inline">
+  <div class="form-group mr-2">
+
+    <label for="search" class="sr-only">Search</label>
+    <input
+    type="search"
+    class="form-control"
+    name="search"
+    id="search"
+    placeholder="Search"
+    [(ngModel)]="searchFormRef.value.search" required
+    />
+  </div>
+
+  <button class="btn btn-primary" type="submit" [disabled]="!searchFormRef.valid">
+    Search
+  </button>
+  </form>

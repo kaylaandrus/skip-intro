@@ -1,13 +1,13 @@
 import { Injectable } from "@angular/core";
-import { EventEmitter } from "@angular/core";
 import { Show } from "../shared/show/show.model";
+import { Subject } from "rxjs";
 
 @Injectable({
   providedIn: "root",
 })
 
 export class StreamingLibraryService {
-  showListChanged = new EventEmitter<Show[]>();
+  showListChanged = new Subject<Show[]>();
 
   private allShows: Show[] = [
     new Show(

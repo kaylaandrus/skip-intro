@@ -9,27 +9,24 @@ import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { WatchlistModule } from './watchlist/watchlist.module';
+import { StreamingLibraryModule } from './what-to-watch/streaming-library.module';
 
 
 
-import { WhatToWatchComponent } from './what-to-watch/what-to-watch.component';
-import { ShowResultsComponent } from './what-to-watch/show-results/show-results.component';
-import { ShowSearchComponent } from './what-to-watch/show-search/show-search.component';
 import { StreamingServicesComponent } from './what-to-watch/streaming-services/streaming-services.component';
 
 import { HomeComponent } from './home/home.component';
 import { FooterComponent } from './footer/footer.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
     FooterComponent,
-    ShowSearchComponent,
-    ShowResultsComponent,
-    WhatToWatchComponent,
     NavbarComponent,
-    StreamingServicesComponent
+    StreamingServicesComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -38,6 +35,8 @@ import { FooterComponent } from './footer/footer.component';
     HttpClientModule,
     SharedModule,
     ReactiveFormsModule,
+    StreamingLibraryModule,
+    WatchlistModule
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS,

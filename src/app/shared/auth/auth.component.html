@@ -1,6 +1,10 @@
 <div class="row">
   <div class="col-xs-12 col-md-6 offset-md-3">
-    <form #authFormRef="ngForm" (ngSubmit)="authFormSubmit(authFormRef)">
+    <form #authFormRef="ngForm"
+    (ngSubmit)="authFormSubmit(authFormRef)"
+      action="action_page.php"
+        method="post"
+        >
       <div class="imgcontainer">
         <img
           src="https://i.ibb.co/NFrzxpW/91168225-5507-4380-B65-D-C52-E86472299.png"
@@ -54,57 +58,4 @@
   </div>
 </div>
 
-<!-- <div class="row">
-  <div class="col-xs-12 col-md-6 offset-md-3">
-<form
-  #authFormRef="ngForm"
-  (ngSubmit)="onAuthFormSubmit(authFormRef)"
-  action="action_page.php"
-  method="post"
->
 
-
-<div class="container">
-  <label for="uname" class="text"><b>Email</b></label>
-  <input
-  type="text"
-      placeholder="Enter Email"
-      name="email"
-      ngModel
-      required
-    />
-
-    <label for="psw" class="text"><b>Password</b></label>
-    <div class="imgcontainer">
-      <img
-        src="https://i.ibb.co/NFrzxpW/91168225-5507-4380-B65-D-C52-E86472299.png"
-        alt="91168225-5507-4380-B65-D-C52-E86472299"
-        class="avatar"
-      />
-    </div>
-    <input
-      type="password"
-      placeholder="Enter Password"
-      name="psw"
-      minlength="6"
-      ngModel
-      required
-    />
-
-    <button type="submit" [disabled]="!authFormRef.valid">
-      {{ signInMode ? "Sign In" : "Sign Up" }}
-    </button>
-    <button type="submit" (click)="onAuthModeToggle()">
-      Switch to {{ signInMode ? "Sign Up" : "Sign In" }}
-    </button>
-
-    <label>
-      <input type="checkbox" checked="checked" name="remember" /> Remember me
-    </label>
-  </div>
-
-  <div class="container" style="background-color: #f1f1f1">
-    <button type="button" class="cancelbtn">Cancel</button>
-    <span class="psw">Forgot <a href="#">password?</a></span>
-  </div>
-</form> -->

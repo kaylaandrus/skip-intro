@@ -4,6 +4,7 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 import { AuthComponent } from './shared/auth/auth.component';
 import { AuthGuard } from './shared/auth/auth.guard';
+import { ShowDetailsComponent } from './watchlist/show-details/show-details.component';
 
 import { WatchlistComponent } from './watchlist/watchlist.component';
 import { AmazonprimeComponent } from './what-to-watch/streaming-services/amazonprime/amazonprime.component';
@@ -15,7 +16,7 @@ import { WhatToWatchComponent } from './what-to-watch/what-to-watch.component';
 
 
 const routes: Routes = [
-  { path: '', redirectTo: "./home", pathMatch: "full"},
+
   { path: 'auth', loadChildren: () => import("./shared/auth/auth.module").then(m => m.AuthModule)},
   { path: 'my-watchlist', loadChildren: () => import("./watchlist/watchlist.module").then(m => m.WatchlistModule)},
   { path: 'what-to-watch', component: WhatToWatchComponent, canActivate: [AuthGuard] },

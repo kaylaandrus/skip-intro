@@ -16,11 +16,10 @@ export class ShowResolverService implements Resolve<Show[]> {
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): any {
     const shows = this.watchlistService.getWatchlistShows();
-// CODE BELOW SHOULD WORK ONCE FIXED ON HTTP SERVICE
-    //if (shows.length === 0) {
-      //return this.httpService.fetchShowsFromFirebase();
-    //} else {
-      //return shows;
-    //}
+    if (shows.length === 0) {
+    return this.httpService.fetchShowsFromFirebase();
+    } else {
+      return shows;
+    }
   }
 }

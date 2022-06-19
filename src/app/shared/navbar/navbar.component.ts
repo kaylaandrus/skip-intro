@@ -16,7 +16,8 @@ export class NavbarComponent implements OnInit, OnDestroy {
 
   constructor(
     private authService: AuthService,
-    private httpService: HTTPService) {}
+    private httpService: HTTPService
+  ) {}
 
   ngOnInit(): void {
     this.authService.currentUser.subscribe((user) => {
@@ -32,8 +33,8 @@ export class NavbarComponent implements OnInit, OnDestroy {
   onSaveData() {
     this.httpService.saveShowsToFirebase();
   }
-  // CODE BELOW SHOULD WORK ONCE FIXED ON HTTP SERVICE
-  //onFetchData() {
-    //this.httpService.fetchShowsFromFirebase().subscribe();
-  //}
+
+  onFetchData() {
+    this.httpService.fetchShowsFromFirebase().subscribe();
+  }
 }

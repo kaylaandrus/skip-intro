@@ -10,9 +10,6 @@ import { initializeApp } from 'firebase/app';
 })
 export class AppComponent implements OnInit {
 
-  firebaseConfig = {};
-  app = initializeApp(this.firebaseConfig);
-
   constructor(private authService: AuthService) {}
 
   ngOnInit(): void {

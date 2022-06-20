@@ -2,72 +2,93 @@
   <div class="container-fluid">
     <a class="navbar-brand" href="/">
       <div class="logo-image">
-        <img src="https://i.ibb.co/NFrzxpW/91168225-5507-4380-B65-D-C52-E86472299.png" alt="91168225-5507-4380-B65-D-C52-E86472299" border="0" class="img-fluid">
+        <img
+          src="https://i.ibb.co/NFrzxpW/91168225-5507-4380-B65-D-C52-E86472299.png"
+          alt="91168225-5507-4380-B65-D-C52-E86472299"
+          border="0"
+          class="img-fluid"
+        />
       </div>
     </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item" *ngIf="isAuthenticated">
-          <a class="nav-link active" aria-current="page" routerLink="my-watchlist"
+          <a
+            class="nav-link active"
+            aria-current="page"
+            routerLink="my-watchlist"
             >My List</a
           >
         </li>
         <li class="nav-item dropdown" *ngIf="isAuthenticated">
-          <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="true">
+          <a
+            class="nav-link dropdown-toggle"
+            id="navbarDropdown"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="true"
+          >
             What To Watch
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" routerLink="what-to-watch"
-                >Netflix</a
-              >
+            <li>
+              <a class="dropdown-item" routerLink="what-to-watch">Netflix</a>
             </li>
-            <li><a class="dropdown-item" routerLink="what-to-watch"
-                >HBO Max</a
-              >
+            <li>
+              <a class="dropdown-item" routerLink="what-to-watch">HBO Max</a>
             </li>
-            <li><a class="dropdown-item" routerLink="what-to-watch"
-                >Hulu</a
-              >
+            <li>
+              <a class="dropdown-item" routerLink="what-to-watch">Hulu</a>
             </li>
-            <li><a class="dropdown-item" routerLink="what-to-watch"
+            <li>
+              <a class="dropdown-item" routerLink="what-to-watch"
                 >Amazon Prime Video</a
               >
             </li>
-            <li><a class="dropdown-item" routerLink="what-to-watch"
-                >Disney+</a
-              >
+            <li>
+              <a class="dropdown-item" routerLink="what-to-watch">Disney+</a>
             </li>
           </ul>
-          <li class="nav-item dropdown" *ngIf="isAuthenticated">
+        </li>
+
+        <li class="nav-item dropdown" *ngIf="isAuthenticated">
           <a
-          class="nav-link dropdown-toggle"
-          style="cursor: pointer"
-          id="navbarDropdownMenuLink"
-          data-toggle="dropdown"
-          aria-haspopup="true"
-          [attr.aria-expanded]="show"
-          (click)="show = !show"
-          [class.show]="show">
-          Settings
-        </a>
+            class="nav-link dropdown-toggle"
+            style="cursor: pointer"
+            id="navbarDropdownMenuLink"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            [attr.aria-expanded]="show"
+            (click)="show = !show"
+            [class.show]="show"
+          >
+            Settings
+          </a>
           <a
-          class="dropdown-item"
-          style="cursor: pointer"
-          (click)="onSaveData()">
-          Save Data
-      </a>
+            class="dropdown-item"
+            style="cursor: pointer"
+            (click)="onSaveData()"
+          >
+            Save Data
+          </a>
         </li>
         <li class="nav-item" *ngIf="!isAuthenticated" (click)="onSignOut()">
-          <a class="nav-link active" aria-current="page" routerLink="auth">Authentication</a>
+          <a class="nav-link active" aria-current="page" routerLink="auth"
+            >Authentication</a
+          >
         </li>
       </ul>
-      <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
     </div>
   </div>
 </nav>

@@ -25,21 +25,21 @@ export class AuthComponent implements OnInit {
     const { email, password } = formObj.value;
 
     if (!email || !password) return;
-
+    console.log(this.signUpMode);
     if (this.signUpMode == true) {
       this.authObs = this.authService.signUpToFirebase(email, password);
     } else {
       this.authObs = this.authService.signInToFirebase(email, password);
     }
-    this.authObs.subscribe(
-      (res) => {
+    this.authObs.subscribe({
+      next: (res) => {
         console.log('SUCCESS:', res);
         this.router.navigate(['watchlist']);
       },
-      (err) => {
+      error: (err) => {
         console.log('ERROR:', err);
-      }
-    );
+      },
+    });
     formObj.reset();
   }
 }

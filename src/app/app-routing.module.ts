@@ -1,9 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { AuthComponent } from './auth/auth.component';
 import { AuthGuard } from './auth/auth.guard';
-
 import { ShowDetailsComponent } from './watchlist/show-details/show-details.component';
 import { ShowResolverService } from './watchlist/show-resolver.service';
 import { WatchlistEditorComponent } from './watchlist/watchlist-editor/watchlist-editor.component';
@@ -11,21 +9,39 @@ import { WatchlistHomeComponent } from './watchlist/watchlist-home/watchlist-hom
 import { WatchlistComponent } from './watchlist/watchlist.component';
 
 
-import { StreamingLibraryModule } from './what-to-watch/streaming-library.module';
 import { WhatToWatchComponent } from './what-to-watch/what-to-watch.component';
 
-
 const routes: Routes = [
-
-  { path: 'auth', loadChildren: () => import("./auth/auth.module").then(m => m.AuthModule)},
-  { path: 'my-watchlist', loadChildren: () => import("./watchlist/watchlist.module").then(m => m.WatchlistModule)},
-  { path: 'what-to-watch', component: WhatToWatchComponent, canActivate: [AuthGuard] },
-  { path: ':id', component: ShowDetailsComponent, resolve: [ShowResolverService]},
-  { path: ':id/edit', component: WatchlistEditorComponent, resolve: [ShowResolverService]},
+  {
+    path: 'auth',
+    loadChildren: () =>
+      import('./auth/auth.module').then((m) => m.AuthModule),
+  },
+  {
+    path: 'my-watchlist',
+    loadChildren: () =>
+      import('./watchlist/watchlist.module').then((m) => m.WatchlistModule),
+  },
+  {
+    path: 'what-to-watch',
+    component: WhatToWatchComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: ':id',
+    component: ShowDetailsComponent,
+    resolve: [ShowResolverService],
+  },
+  {
+    path: ':id/edit',
+    component: WatchlistEditorComponent,
+    resolve: [ShowResolverService],
+  },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [
+    RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}

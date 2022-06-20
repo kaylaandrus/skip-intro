@@ -1,6 +1,5 @@
-import { Component, OnInit, OnDestroy, Output } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { AuthService } from '../../auth/auth.service';
-import { User } from '../../auth/user.model';
 import { HTTPService } from '../http/http.service';
 
 @Component({
@@ -15,25 +14,25 @@ export class NavbarComponent implements OnInit, OnDestroy {
   isAuthenticated = false;
 
   constructor(
-    private authService: AuthService,
-    private httpService: HTTPService
+    private httpService: HTTPService,
+    private authService: AuthService
   ) {}
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.authService.currentUser.subscribe((user) => {
       this.isAuthenticated = !!user;
     });
   }
-  ngOnDestroy(): void {
+  ngOnDestroy() {
     this.authService.currentUser.unsubscribe();
-  }
-  onSignOut() {
-    this.authService.signOut();
   }
   onSaveData() {
     this.httpService.saveShowsToFirebase();
   }
   onFetchData() {
     this.httpService.fetchShowsFromFirebase().subscribe();
+  }
+  onSignOut() {
+    this.authService.signOut();
   }
 }

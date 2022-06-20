@@ -8,7 +8,7 @@ import { Show } from '../show/show.model';
   providedIn: 'root',
 })
 export class HTTPService {
-  FIREBASE_DB_URL = "https://skip-intro-7b47f-default-rtdb.firebaseio.com";
+  FIREBASE_DB_URL = 'https://skip-intro-7b47f-default-rtdb.firebaseio.com';
 
   constructor(
     private http: HttpClient,
@@ -16,17 +16,16 @@ export class HTTPService {
   ) {}
 
   saveShowsToFirebase() {
-    const saveShows = this.watchlistService.getWatchlistShows();
-
-    this.http.put(this.FIREBASE_DB_URL, saveShows).subscribe((res) => {
-      console.log('Firebase DB Response:', res);
-    });
+    // const saveShows = this.watchlistService.getWatchlistShows();
+    // this.http.put(this.FIREBASE_DB_URL, saveShows).subscribe((res) => {
+    //   console.log('Firebase DB Response:', res);
+    // });
   }
   fetchShowsFromFirebase() {
-    return this.http.get(this.FIREBASE_DB_URL, {}).pipe(
-      tap((shows: Show[]) => {
-        this.watchlistService.setWatchlistShows(shows);
-      })
-    );
+    //   return this.http.get(this.FIREBASE_DB_URL, {}).pipe(
+    //     tap((shows: Show[]) => {
+    //       this.watchlistService.setWatchlistShows(shows);
+    //     })
+    //   );
   }
 }

@@ -45,7 +45,7 @@
           class="btn btn-dark"
           [disabled]="!authFormRef.valid"
         >
-          {{ signInMode ? "Sign In" : "Sign Up" }}
+          {{ signUpMode ? "Sign In" : "Sign Up" }}
         </button>
 
         <button
@@ -53,7 +53,7 @@
           class="btn btn-light"
           (click)="onAuthModeToggle()"
         >
-          Toggle to {{ signInMode ? "Sign Up" : "Sign In" }}
+          Toggle to {{ signUpMode ? "Sign Up" : "Sign In" }}
         </button>
       </div>
     </form>

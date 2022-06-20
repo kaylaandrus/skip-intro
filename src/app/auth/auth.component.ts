@@ -11,14 +11,14 @@ import { Router } from '@angular/router';
 })
 export class AuthComponent implements OnInit {
   authObs: Observable<any>;
-  signInMode = true;
+  signUpMode = true;
 
   constructor(private authService: AuthService, private router: Router) {}
 
   ngOnInit(): void {}
 
   onAuthModeToggle() {
-    this.signInMode = !this.signInMode;
+    this.signUpMode = !this.signUpMode;
   }
 
   authFormSubmit(formObj: NgForm) {
@@ -26,10 +26,10 @@ export class AuthComponent implements OnInit {
 
     if (!email || !password) return;
 
-    if (this.signInMode == true) {
-      this.authObs = this.authService.signInToFirebase(email, password);
-    } else {
+    if (this.signUpMode == true) {
       this.authObs = this.authService.signUpToFirebase(email, password);
+    } else {
+      this.authObs = this.authService.signInToFirebase(email, password);
     }
     this.authObs.subscribe(
       (res) => {

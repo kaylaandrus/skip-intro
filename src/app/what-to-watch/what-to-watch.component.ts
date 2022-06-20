@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { ShowSearchComponent } from './show-search/show-search.component';
 
 @Component({
   selector: 'app-what-to-watch',

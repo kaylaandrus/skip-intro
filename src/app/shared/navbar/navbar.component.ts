@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy, Output } from '@angular/core';
-import { AuthService } from '../auth/auth.service';
-import { User } from '../auth/user.model';
+import { AuthService } from '../../auth/auth.service';
+import { User } from '../../auth/user.model';
 import { HTTPService } from '../http/http.service';
 
 @Component({

@@ -1,41 +1,31 @@
 import { NgModule } from '@angular/core';
-import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 
+import { AuthComponent } from './auth/auth.component';
+import { AuthGuard } from './auth/auth.guard';
 
-import { AuthComponent } from './shared/auth/auth.component';
-import { AuthGuard } from './shared/auth/auth.guard';
 import { ShowDetailsComponent } from './watchlist/show-details/show-details.component';
 import { ShowResolverService } from './watchlist/show-resolver.service';
 import { WatchlistEditorComponent } from './watchlist/watchlist-editor/watchlist-editor.component';
+import { WatchlistHomeComponent } from './watchlist/watchlist-home/watchlist-home.component';
+import { WatchlistComponent } from './watchlist/watchlist.component';
 
 
-import { AmazonprimeComponent } from './what-to-watch/streaming-services/amazonprime/amazonprime.component';
-import { DisneyplusComponent } from './what-to-watch/streaming-services/disneyplus/disneyplus.component';
-import { HbomaxComponent } from './what-to-watch/streaming-services/hbomax/hbomax.component';
-import { HuluComponent } from './what-to-watch/streaming-services/hulu/hulu.component';
-import { NetflixComponent } from './what-to-watch/streaming-services/netflix/netflix.component';
+import { StreamingLibraryModule } from './what-to-watch/streaming-library.module';
 import { WhatToWatchComponent } from './what-to-watch/what-to-watch.component';
 
 
 const routes: Routes = [
 
-  { path: 'auth', loadChildren: () => import("./shared/auth/auth.module").then(m => m.AuthModule)},
+  { path: 'auth', loadChildren: () => import("./auth/auth.module").then(m => m.AuthModule)},
   { path: 'my-watchlist', loadChildren: () => import("./watchlist/watchlist.module").then(m => m.WatchlistModule)},
   { path: 'what-to-watch', component: WhatToWatchComponent, canActivate: [AuthGuard] },
   { path: ':id', component: ShowDetailsComponent, resolve: [ShowResolverService]},
   { path: ':id/edit', component: WatchlistEditorComponent, resolve: [ShowResolverService]},
-  { path: 'what-to-watch/streaming-services/netflix', component: NetflixComponent },
-  { path: 'what-to-watch/streaming-services/hbomax', component: HbomaxComponent },
-  { path: 'what-to-watch/streaming-services/hulu', component: HuluComponent },
-  { path: 'what-to-watch/streaming-services/amazonprime', component: AmazonprimeComponent },
-  { path: 'what-to-watch/streaming-services/disneyplus', component: DisneyplusComponent },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, {
-    preloadingStrategy: PreloadAllModules,
-    initialNavigation: "enabled"})
-  ],
+  imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}

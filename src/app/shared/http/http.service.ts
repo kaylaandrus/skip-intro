@@ -8,7 +8,7 @@ import { Show } from '../show/show.model';
   providedIn: 'root',
 })
 export class HTTPService {
-  FIREBASE_DB_URL = 'https://skip-intro-7b47f-default-rtdb.firebaseio.com/';
+  FIREBASE_DB_URL = "https://skip-intro-7b47f-default-rtdb.firebaseio.com";
 
   constructor(
     private http: HttpClient,

@@ -5,7 +5,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AuthInterceptorService } from './auth/auth-interceptor.service';
 import { AuthModule } from './auth/auth.module';
 import { AppComponent } from './app.component';
-import { WatchlistModule } from './watchlist/watchlist.module';
 import { StreamingLibraryModule } from './what-to-watch/streaming-library.module';
 import { SharedModule } from './shared/shared.module';
 import { NavbarComponent } from './shared/navbar/navbar.component';
@@ -23,7 +22,6 @@ import { WatchlistComponent } from './watchlist/watchlist.component';
     FooterComponent,
     NavbarComponent,
     HomeComponent,
-    WatchlistComponent
 
   ],
   imports: [

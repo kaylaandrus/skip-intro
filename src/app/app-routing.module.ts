@@ -10,10 +10,20 @@ import { WatchlistComponent } from './watchlist/watchlist.component';
 import { HomeComponent } from './home/home.component';
 
 import { WhatToWatchComponent } from './what-to-watch/what-to-watch.component';
+import { NetflixComponent } from './what-to-watch/streaming-services/netflix/netflix.component';
+import { HuluComponent } from './what-to-watch/streaming-services/hulu/hulu.component';
+import { HbomaxComponent } from './what-to-watch/streaming-services/hbomax/hbomax.component';
+import { DisneyplusComponent } from './what-to-watch/streaming-services/disneyplus/disneyplus.component';
+import { AmazonprimeComponent } from './what-to-watch/streaming-services/amazonprime/amazonprime.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: '', redirectTo: '/auth', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
+  { path: 'netflix', component: NetflixComponent },
+  { path: 'hulu', component: HuluComponent },
+  { path: 'hbomax', component: HbomaxComponent },
+  { path: 'disneyplus', component: DisneyplusComponent },
+  { path: 'amazonprime', component: AmazonprimeComponent },
 
   {
     path: 'auth',

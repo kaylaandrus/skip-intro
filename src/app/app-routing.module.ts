@@ -12,6 +12,8 @@ import { WatchlistComponent } from './watchlist/watchlist.component';
 import { WhatToWatchComponent } from './what-to-watch/what-to-watch.component';
 
 const routes: Routes = [
+  { path: "", redirectTo: "/watchlist", pathMatch: "full"},
+
   {
     path: 'auth',
     loadChildren: () =>
@@ -22,6 +24,12 @@ const routes: Routes = [
     loadChildren: () =>
       import('./watchlist/watchlist.module').then((m) => m.WatchlistModule),
   },
+  //
+  //{
+    //path: "what-to-watch",
+    //loadChildren: () =>
+      //import("./what-to-watch/streaming-library.module).then(m => m.StreamingLibraryModule)
+  //}
   {
     path: 'what-to-watch',
     component: WhatToWatchComponent,

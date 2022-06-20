@@ -12,7 +12,7 @@ import { WatchlistComponent } from './watchlist/watchlist.component';
 import { WhatToWatchComponent } from './what-to-watch/what-to-watch.component';
 
 const routes: Routes = [
-  { path: "", redirectTo: "/watchlist", pathMatch: "full"},
+  { path: "", redirectTo: "/home", pathMatch: "full"},
 
   {
     path: 'auth',

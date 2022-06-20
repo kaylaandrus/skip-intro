@@ -11,6 +11,7 @@ import { SharedModule } from './shared/shared.module';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { HomeComponent } from './home/home.component';
 import { FooterComponent } from './footer/footer.component';
+import { WatchlistComponent } from './watchlist/watchlist.component';
 
 
 //import { ServiceWorkerModule } from '@angular/service-worker';
@@ -22,6 +23,7 @@ import { FooterComponent } from './footer/footer.component';
     FooterComponent,
     NavbarComponent,
     HomeComponent,
+    WatchlistComponent
 
   ],
   imports: [
@@ -29,9 +31,10 @@ import { FooterComponent } from './footer/footer.component';
     AppRoutingModule,
     HttpClientModule,
     SharedModule,
-   // ServiceWorkerModule.register('ngsw-worker.js', {
-      //enabled: environment.production,
-      //registrationStrategy: 'registerWhenStable30000'
+    AuthModule
+   //ServiceWorkerModule.register('ngsw-worker.js', {
+    //enabled: environment.production,
+    //registrationStrategy: 'registerWhenStable30000'
     //})
   ],
   providers: [

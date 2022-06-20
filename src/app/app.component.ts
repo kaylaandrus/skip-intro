@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from './auth/auth.service';
-import { initializeApp } from 'firebase/app';
+
 
 
 @Component({
@@ -10,8 +10,6 @@ import { initializeApp } from 'firebase/app';
 })
 export class AppComponent implements OnInit {
 
-  firebaseConfig = {};
-  app = initializeApp(this.firebaseConfig);
 
   constructor(private authService: AuthService) {}
 

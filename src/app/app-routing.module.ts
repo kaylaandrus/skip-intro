@@ -7,17 +7,17 @@ import { ShowResolverService } from './watchlist/show-resolver.service';
 import { WatchlistEditorComponent } from './watchlist/watchlist-editor/watchlist-editor.component';
 import { WatchlistHomeComponent } from './watchlist/watchlist-home/watchlist-home.component';
 import { WatchlistComponent } from './watchlist/watchlist.component';
-
+import { HomeComponent } from './home/home.component';
 
 import { WhatToWatchComponent } from './what-to-watch/what-to-watch.component';
 
 const routes: Routes = [
-  { path: "", redirectTo: "/home", pathMatch: "full"},
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: 'home', component: HomeComponent },
 
   {
     path: 'auth',
-    loadChildren: () =>
-      import('./auth/auth.module').then((m) => m.AuthModule),
+    loadChildren: () => import('./auth/auth.module').then((m) => m.AuthModule),
   },
   {
     path: 'my-watchlist',
@@ -26,9 +26,9 @@ const routes: Routes = [
   },
   //
   //{
-    //path: "what-to-watch",
-    //loadChildren: () =>
-      //import("./what-to-watch/streaming-library.module).then(m => m.StreamingLibraryModule)
+  //path: "what-to-watch",
+  //loadChildren: () =>
+  //import("./what-to-watch/streaming-library.module).then(m => m.StreamingLibraryModule)
   //}
   {
     path: 'what-to-watch',
@@ -48,8 +48,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [
-    RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}

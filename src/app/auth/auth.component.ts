@@ -34,7 +34,7 @@ export class AuthComponent implements OnInit {
     this.authObs.subscribe({
       next: (res) => {
         console.log('SUCCESS:', res);
-        this.router.navigate(['my-watchlist']);
+        this.router.navigate(['home']);
       },
       error: (err) => {
         console.log('ERROR:', err);

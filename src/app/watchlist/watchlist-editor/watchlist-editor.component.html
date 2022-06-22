@@ -1,34 +1,34 @@
 <form #showFormRef="ngForm" (ngSubmit)="onShowFormSubmit(showFormRef)">
   <!-- TITLE - input -->
   <div class="form-group">
-    <label for="title">Title</label>
+    <label for="name">Title</label>
     <input
       type="text"
       class="form-control"
-      id="title"
-      name="title"
-      [ngModel]="showDetails.title"
-      #titleRef="ngModel"
+      id="name"
+      name="name"
+      [ngModel]="showDetails.name"
+      #nameRef="ngModel"
       required
     />
     <span
       class="help-block text-danger"
-      *ngIf="titleRef.touched && !titleRef.valid"
+      *ngIf="nameRef.touched && !nameRef.valid"
       >Please enter a valid title!</span
     >
   </div>
 
   <!-- RELEASE DATE - input -->
   <div class="form-group">
-    <label for="releaseDate">Release Date</label>
+    <label for="year">Release Year</label>
     <input
       type="number"
       min="1900"
       max="2022"
       class="form-control"
-      id="releaseDate"
-      name="releaseDate"
-      [ngModel]="showDetails.releaseDate"
+      id="year"
+      name="year"
+      [ngModel]="showDetails.year"
       #releaseDateRef="ngModel"
       required
     />
@@ -41,47 +41,36 @@
 
   <!-- GENRE - select -->
   <div class="form-group">
-    <label for="genre">Genre</label>
+    <label for="type">Type</label>
     <select
       class="form-control"
-      id="genre"
-      name="genre"
-      [ngModel]="showDetails.genre"
+      id="type"
+      name="type"
+      [ngModel]="showDetails.type"
       #genreRef="ngModel"
       required
     >
-      <option disabled selected value>Please select a genre</option>
-      <option value="thriller">Thriller</option>
-      <option value="sci-fi">Sci-fi</option>
-      <option value="documentary">Documentary</option>
-      <option value="romance">Romance</option>
-      <option value="horror">Horror</option>
-      <option value="comedy">Comedy</option>
-      <option value="drama">Drama</option>
-      <option value="action">Action</option>
-      <option value="western">Western</option>
-      <option value="anthology">Anthology</option>
-      <option value="children's">Children's</option>
-      <option value="anime">Anime</option>
-      <option value="educational">Educational</option>
-      <option value="reality">Reality</option>
+      <option disabled selected value>Please select a type</option>
+      <option value="tv_series">TV Series</option>
+      <option value="tv_special">TV Special</option>
+      <option value="tv_miniseries">TV Mini-Series</option>
     </select>
     <span
       class="help-block text-danger"
       *ngIf="genreRef.touched && !genreRef.valid"
-      >Please enter a valid genre!</span
+      >Please enter a valid type!</span
     >
   </div>
 
   <!-- IMAGE - input -->
   <div class="form-group">
-    <label for="coverImg">Poster Image URL</label>
+    <label for="image_url">Poster Image</label>
     <input
       type="text"
       class="form-control"
-      id="coverImg"
-      name="coverImg"
-      [ngModel]="showDetails.coverImg"
+      id="image_url"
+      name="image_url"
+      [ngModel]="showDetails.image_url"
     />
   </div>
 
@@ -90,8 +79,8 @@
     <div class="col-xs-10 mx-auto">
       <img
         class="img-responsive"
-        [src]="showFormRef.value['coverImg']"
-        [alt]="showFormRef.value['title']"
+        [src]="showFormRef.value['image_url']"
+        [alt]="showFormRef.value['name']"
       />
     </div>
   </div>

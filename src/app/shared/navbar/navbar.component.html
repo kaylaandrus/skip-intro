@@ -33,7 +33,15 @@
             class="nav-link active"
             aria-current="page"
             routerLink="my-watchlist"
-            >My List</a
+            >My Watchlist</a
+          >
+        </li>
+        <li class="nav-item" *ngIf="isAuthenticated">
+          <a
+            class="nav-link active"
+            aria-current="page"
+            routerLink="what-to-watch"
+            >Find a Show</a
           >
         </li>
         <li class="nav-item dropdown" *ngIf="isAuthenticated">
@@ -44,25 +52,25 @@
             data-bs-toggle="dropdown"
             aria-expanded="true"
           >
-            What To Watch
+            Streaming Services
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
             <li>
-              <a class="dropdown-item" routerLink="/netflix">Netflix</a>
+              <a class="dropdown-item" href="https://www.netflix.com/browse">Netflix</a>
             </li>
             <li>
-              <a class="dropdown-item" routerLink="/hbomax">HBO Max</a>
+              <a class="dropdown-item" href="https://www.hbomax.com/">HBO Max</a>
             </li>
             <li>
-              <a class="dropdown-item" routerLink="/hulu">Hulu</a>
+              <a class="dropdown-item" href="https://www.hulu.com/">Hulu</a>
             </li>
             <li>
-              <a class="dropdown-item" routerLink="/amazonprime"
+              <a class="dropdown-item" href="https://www.amazon.com/b/ref=atv_gs_intro_prime_b?_encoding=UTF8&node=2858778011"
                 >Amazon Prime Video</a
               >
             </li>
             <li>
-              <a class="dropdown-item" routerLink="/disneyplus">Disney+</a>
+              <a class="dropdown-item" href="https://www.disneyplus.com/">Disney+</a>
             </li>
           </ul>
         </li>

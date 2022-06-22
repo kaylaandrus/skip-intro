@@ -1,9 +1,8 @@
 export class Show {
   constructor(
-    public title: string,
-    public releaseDate: number,
-    public genre: string,
-    public library: string,
-    public coverImg: string
+    public name: string,
+    public year: number,
+    public type: string,
+    public image_url: string
   ) {}
 }

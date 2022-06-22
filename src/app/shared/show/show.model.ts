@@ -1,6 +1,6 @@
 export class Show {
   constructor(
-    public title: string,
+    public name: string,
     public releaseDate: number,
     public genre: string,
     public library: string,

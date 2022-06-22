@@ -13,7 +13,7 @@ export class WatchlistEditorComponent implements OnInit {
   idx: number;
   isEditMode = false;
   showDetails: Show = {
-    title: "",
+    name: "",
     releaseDate: null,
     genre: "",
     library: "",
@@ -38,9 +38,9 @@ export class WatchlistEditorComponent implements OnInit {
   }
 
   onShowFormSubmit(formObj: NgForm) {
-    const { title, releaseDate, genre, library, coverImg } = formObj.value;
+    const { name, releaseDate, genre, library, coverImg } = formObj.value;
 
-    this.showDetails = new Show(title, releaseDate, genre, library, coverImg);
+    this.showDetails = new Show(name, releaseDate, genre, library, coverImg);
 
     if (this.isEditMode == true) {
       this.watchlistService.updateWatchlistShow(this.idx, this.showDetails);

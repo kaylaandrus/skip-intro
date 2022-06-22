@@ -1,13 +1,13 @@
 <form #searchFormRef="ngForm" (ngSubmit)="onShowSearch(searchFormRef.value.search)" class="form-inline">
   <div class="form-group mr-2">
 
-    <label for="search" class="sr-only">Search</label>
+    <label for="search" class="sr-only"></label>
     <input
     type="search"
     class="form-control"
     name="search"
     id="search"
-    placeholder="Search"
+    placeholder="Find a Show"
     [(ngModel)]="searchFormRef.value.search" required
     />
   </div>

@@ -2,11 +2,11 @@
 class="list-group-item clearfix" (click)="onShowSelected()">
   <div class="float-left">
   <h4 class="list-group-item-heading">{{ show.name }}</h4>
-  <p class="list-group-item-text mb-0">{{ show.genre }}</p>
+  <p class="list-group-item-text mb-0">{{ show.year }}</p>
 </div>
 <div class="float-right">
   <img
-  src="{{ show.coverImg }}"
+  src="{{ show.image_url }}"
   alt="{{ show.name }}"
   class="img-responsive rounded"
   style="max-height:50px"/>

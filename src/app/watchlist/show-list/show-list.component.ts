@@ -15,8 +15,7 @@ export class ShowListComponent implements OnInit, OnDestroy {
     new Show(
       'Stranger Things: Season 4',
       2022,
-      'Sci-Fi',
-      '100',
+      'tv_show',
       'https://upload.wikimedia.org/wikipedia/en/7/78/Stranger_Things_season_4.jpg')];
   sortField = "library";
   sortSwitcher = true;
@@ -49,9 +48,9 @@ export class ShowListComponent implements OnInit, OnDestroy {
     this.sortSwitcher = !this.sortSwitcher;
 
     if (this.sortSwitcher) {
-      this.sortField = 'library';
+      this.sortField = 'year';
     } else {
-      this.sortField = 'title';
+      this.sortField = 'name';
     }
   }
 }

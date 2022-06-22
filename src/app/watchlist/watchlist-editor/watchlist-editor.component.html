@@ -17,37 +17,41 @@
       >Please enter a valid title!</span
     >
   </div>
+<!-- STREAMING SERVICES - select -->
+<div class="form-group">
+  <label for="source_ids">Library</label>
+  <select
+    class="form-control"
+    id="source_ids"
+    name="source_ids"
+    [ngModel]="showDetails.source_ids"
+    #source_idsRef="ngModel"
+    required
+  >
+    <option disabled selected value>Please select a streaming service</option>
+    <option value="netflix">Netflix</option>
+    <option value="hulu">Hulu</option>
+    <option value="hbo+max">HBO Max</option>
+    <option value="amazon+prime">Amazon Prime</option>
+    <option value="appletv+">Apple Tv+</option>
+    <option value="disney+plus">Disney Plus</option>
+  </select>
+  <span
+    class="help-block text-danger"
+    *ngIf="source_idsRef.touched && !source_idsRef.valid"
+    >Please enter a valid streaming service!</span
+  >
+</div>
 
-  <!-- RELEASE DATE - input -->
+  <!-- TYPE - select -->
   <div class="form-group">
-    <label for="year">Release Year</label>
-    <input
-      type="number"
-      min="1900"
-      max="2022"
-      class="form-control"
-      id="year"
-      name="year"
-      [ngModel]="showDetails.year"
-      #releaseDateRef="ngModel"
-      required
-    />
-    <span
-      class="help-block text-danger"
-      *ngIf="releaseDateRef.touched && !releaseDateRef.valid"
-      >Please enter a valid release date!</span
-    >
-  </div>
-
-  <!-- GENRE - select -->
-  <div class="form-group">
-    <label for="type">Type</label>
+    <label for="types">Type</label>
     <select
       class="form-control"
-      id="type"
-      name="type"
-      [ngModel]="showDetails.type"
-      #genreRef="ngModel"
+      id="types"
+      name="types"
+      [ngModel]="showDetails.types"
+      #typesRef="ngModel"
       required
     >
       <option disabled selected value>Please select a type</option>
@@ -57,7 +61,7 @@
     </select>
     <span
       class="help-block text-danger"
-      *ngIf="genreRef.touched && !genreRef.valid"
+      *ngIf="typesRef.touched && !typesRef.valid"
       >Please enter a valid type!</span
     >
   </div>

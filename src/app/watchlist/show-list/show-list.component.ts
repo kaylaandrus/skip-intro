@@ -14,7 +14,7 @@ export class ShowListComponent implements OnInit, OnDestroy {
   myShows: Show[] = [
     new Show(
       'Stranger Things: Season 4',
-      2022,
+      'netflix',
       'tv_show',
       'https://upload.wikimedia.org/wikipedia/en/7/78/Stranger_Things_season_4.jpg')];
   sortField = "library";

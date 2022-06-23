@@ -1,6 +1,7 @@
 form {
   border: 3px solid #A5C77F;
   padding: 20px;
+  background-color: #262626;
 }
 
 input[type=email], input[type=password] {

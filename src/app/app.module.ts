@@ -6,11 +6,12 @@ import { AuthInterceptorService } from './auth/auth-interceptor.service';
 import { AuthModule } from './auth/auth.module';
 import { AppComponent } from './app.component';
 import { StreamingLibraryModule } from './what-to-watch/streaming-library.module';
+import { WatchlistModule } from './watchlist/watchlist.module';
 import { SharedModule } from './shared/shared.module';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { HomeComponent } from './home/home.component';
 import { FooterComponent } from './footer/footer.component';
-import { WatchlistComponent } from './watchlist/watchlist.component';
+
 
 
 //import { ServiceWorkerModule } from '@angular/service-worker';
@@ -29,7 +30,7 @@ import { WatchlistComponent } from './watchlist/watchlist.component';
     AppRoutingModule,
     HttpClientModule,
     SharedModule,
-    AuthModule
+    AuthModule,
    //ServiceWorkerModule.register('ngsw-worker.js', {
     //enabled: environment.production,
     //registrationStrategy: 'registerWhenStable30000'

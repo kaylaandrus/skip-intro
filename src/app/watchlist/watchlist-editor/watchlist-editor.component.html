@@ -66,40 +66,17 @@
     >
   </div>
 
-  <!-- IMAGE - input -->
-  <div class="form-group">
-    <label for="image_url">Poster Image</label>
-    <input
-      type="text"
-      class="form-control"
-      id="image_url"
-      name="image_url"
-      [ngModel]="showDetails.image_url"
-    />
-  </div>
-
-  <!-- IMAGE - display -->
-  <div class="row my-2">
-    <div class="col-xs-10 mx-auto">
-      <img
-        class="img-responsive"
-        [src]="showFormRef.value['image_url']"
-        [alt]="showFormRef.value['name']"
-      />
-    </div>
-  </div>
-
   <!-- SUBMIT - button -->
   <button
     type="submit"
-    class="btn btn-primary mr-3"
+    class="btn btn-secondary"
     [disabled]="!showFormRef.valid"
   >
     Save Show
   </button>
 
   <!-- CANCEL - button -->
-  <button type="button" class="btn btn-warning" (click)="onResetForm()">
+  <button type="button" class="btn btn-secondary" (click)="onResetForm()">
     Cancel
   </button>
 </form>

@@ -33,7 +33,7 @@ export class StreamingLibraryService {
 
       const simpleShow = new Show(
         show.name,
-        show.source_ids ? show.source_ids[0] : 'unknown',
+        show.source_ids ? show.source_ids[1] : 'unknown',
         'unknown',
         'https://i.ibb.co/NFrzxpW/91168225-5507-4380-B65-D-C52-E86472299.png'
       );

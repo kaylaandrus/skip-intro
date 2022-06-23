@@ -16,16 +16,17 @@ export class HTTPService {
   ) {}
 
   saveShowsToFirebase() {
-    // const saveShows = this.watchlistService.getWatchlistShows();
-    // this.http.put(this.FIREBASE_DB_URL, saveShows).subscribe((res) => {
-    //   console.log('Firebase DB Response:', res);
-    // });
+    const shows = this.watchlistService.getWatchlistShows();
+
+    this.http.put(this.FIREBASE_DB_URL, shows).subscribe((res) => {
+      console.log('Firebase DB Res:', res);
+    });
   }
   fetchShowsFromFirebase() {
-    //   return this.http.get(this.FIREBASE_DB_URL, {}).pipe(
-    //     tap((shows: Show[]) => {
-    //       this.watchlistService.setWatchlistShows(shows);
-    //     })
-    //   );
+    return this.http.get(this.FIREBASE_DB_URL, {}).pipe(
+      tap((shows: Show[]) => {
+        this.watchlistService.setWatchlistShows(shows);
+      })
+    );
   }
 }

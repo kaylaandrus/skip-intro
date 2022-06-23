@@ -22,6 +22,9 @@ export class StreamingLibraryService {
     .join ("+")
     .toLowerCase();
 
+
+/// This link is throwing an HTTP 401 error with Api service (wrong API key)
+/// figure out how this link is supposed to be formatted with the API Key: lb2NG4CiWnUIRQgEbzvcKDeXMyKXCNern1SH67eN
     this.http
     .get(`https://api.watchmode.com/v1/list-titles/?apiKey=lb2NG4CiWnUIRQgEbzvcKDeXMyKXCNern1SH67eN${formattedQuery}`)
     .subscribe((searchResults: any) => {

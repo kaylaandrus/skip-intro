@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { AuthService } from './auth/auth.service';
 
 
@@ -6,7 +6,8 @@ import { AuthService } from './auth/auth.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
+  encapsulation: ViewEncapsulation.None
 })
 export class AppComponent implements OnInit {
 
@@ -15,10 +16,5 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     this.authService.automaticSignIn();
   }
-  darkMode() {
-    const element = document.body;
-    element.classList.toggle("dark-mode");
-  }
-
 }
 

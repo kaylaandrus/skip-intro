@@ -1,10 +1,11 @@
 .body {
-  background-color: #A5C77F;
-  background: cover;
-  color:#262626
-}
-
-.dark-mode {
   background-color: #262626;
+  display: flex;
+}
+.row {
+  background-color: transparent;
+  display: flex;
   color: #A5C77F;
+  flex-direction:row;
+  flex-basis: auto;
 }

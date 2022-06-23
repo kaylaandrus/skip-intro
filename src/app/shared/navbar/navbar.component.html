@@ -1,7 +1,7 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light" id="nav">
+<nav class="navbar navbar-expand-lg navbar-light" id="nav">
   <div class="container-fluid">
     <a class="navbar-brand" href="/">
-      <div class="logo-image">
+      <div class="logo-image" *ngIf="isAuthenticated">
         <img
           src="https://i.ibb.co/NFrzxpW/91168225-5507-4380-B65-D-C52-E86472299.png"
           alt="91168225-5507-4380-B65-D-C52-E86472299"
@@ -88,7 +88,8 @@
           >
             Settings
           </a>
-
+          </li>
+          <li class="nav-item dropdown" *ngIf="isAuthenticated">
           <a
             class="dropdown-item"
             style="cursor: pointer"
@@ -96,10 +97,10 @@
           >
             Save Data
           </a>
-        </li>
-        <li class="nav-item" *ngIf="!isAuthenticated" (click)="onSignOut()">
+          </li>
+        <li class="nav-item" *ngIf="isAuthenticated" (click)="onSignOut()">
           <a class="nav-link active" aria-current="page" routerLink="auth"
-            >Authentication</a
+            >Sign Out</a
           >
         </li>
       </ul>

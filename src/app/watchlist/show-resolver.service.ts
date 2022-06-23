@@ -3,6 +3,7 @@ import { ActivatedRouteSnapshot, Resolve, RouterStateSnapshot } from "@angular/r
 import { Show } from "../shared/show/show.model";
 import { HTTPService } from "../shared/http/http.service";
 import { WatchlistService } from "./watchlist.service";
+import { Observable } from "rxjs";
 
 @Injectable({
   providedIn: "root",

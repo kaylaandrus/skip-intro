@@ -3,6 +3,7 @@ import { Show } from 'src/app/shared/show/show.model';
 import { WatchlistService } from '../watchlist.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { HTTPService } from 'src/app/shared/http/http.service';
 
 @Component({
   selector: 'app-show-list',
@@ -11,18 +12,14 @@ import { Subscription } from 'rxjs';
 })
 export class ShowListComponent implements OnInit, OnDestroy {
   private showListSub: Subscription;
-  myShows: Show[] = [
-    new Show(
-      'Stranger Things: Season 4',
-      'netflix',
-      'tv_show',
-      'https://upload.wikimedia.org/wikipedia/en/7/78/Stranger_Things_season_4.jpg')];
-  sortField = "library";
+  myShows: Show[] = [];
+  sortField = "source_ids";
   sortSwitcher = true;
 
   constructor(
     private watchlistService: WatchlistService,
     private router: Router,
+    private httpService: HTTPService,
     private route: ActivatedRoute
     ) {}
 
@@ -48,7 +45,7 @@ export class ShowListComponent implements OnInit, OnDestroy {
     this.sortSwitcher = !this.sortSwitcher;
 
     if (this.sortSwitcher) {
-      this.sortField = 'year';
+      this.sortField = 'source_ids';
     } else {
       this.sortField = 'name';
     }

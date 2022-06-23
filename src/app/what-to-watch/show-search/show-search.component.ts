@@ -15,13 +15,6 @@ export class ShowSearchComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  onFetchShows() {
-    this.http
-    .get('https://api.watchmode.com/v1/search/?apiKey=lb2NG4CiWnUIRQgEbzvcKDeXMyKXCNern1SH67eN&search_field=name&search_value=Ed%20Wood')
-    .subscribe((searchResponse) => {
-      console.log('searchResponse', searchResponse);
-    });
-  }
 
   onShowSearch(searchInput: string) {
     this.streamingLibraryService.fetchShowsFromAPI(searchInput);

@@ -1,3 +1,7 @@
 form .ng-invalid.ng-touched {
   border: 1px solid green;
 }
+.form-group {
+  top: 25px;
+  padding-top: 10%;
+}

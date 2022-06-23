@@ -1,14 +1,19 @@
 .logo-image{
   max-height: 100%;
   max-width: 100%;
-  width: 75px;
-  height: 75px;
+  width: 100px;
+  height: 100px;
   overflow: hidden;
   margin-top: 10px;
 }
-.nav {
+.nav.navbar.navbar-expand-lg.navbar-light.bg-light {
   color: #A5C77F;
+  flex-wrap: nowrap;
   text-transform: none;
   text-align: justify;
+  background-color: transparent;
+}
+.ul.navbar-nav.me-auto.mb-2.mb-lg-0 {
+padding-left: 10%;
 }
 

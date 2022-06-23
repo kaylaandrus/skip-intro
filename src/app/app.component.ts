@@ -15,5 +15,10 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     this.authService.automaticSignIn();
   }
+  darkMode() {
+    const element = document.body;
+    element.classList.toggle("dark-mode");
+  }
+
 }
 

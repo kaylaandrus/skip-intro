@@ -9,3 +9,6 @@
   flex-direction:row;
   flex-basis: auto;
 }
+::selection{
+  background-color: #416F14 !important;
+}

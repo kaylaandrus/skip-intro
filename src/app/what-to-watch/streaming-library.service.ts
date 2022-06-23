@@ -18,9 +18,6 @@ export class StreamingLibraryService {
   fetchShowsFromAPI(query: string) {
     const formattedQuery = query.split('').join('%20').toLowerCase();
 
-
-/// This link is throwing an HTTP 401 error with Api service (wrong API key)
-/// figure out how this link is supposed to be formatted with the API Key: lb2NG4CiWnUIRQgEbzvcKDeXMyKXCNern1SH67eN
     this.http
       .get(
         `https://api.watchmode.com/v1/search/?apiKey=lb2NG4CiWnUIRQgEbzvcKDeXMyKXCNern1SH67eN&search_field=name&search_value=${query}`
@@ -45,3 +42,6 @@ export class StreamingLibraryService {
     this.showListChanged.next(this.allShows.slice());
   }
 }
+
+// Need to fix onSaveShow() in show-results
+// Need to fix 'unknown' strings in saveShowsToGlobalArray method to render show year
